@@ -21,3 +21,6 @@ Route::post('/form','FormController@post');
 
 Route::get('/trainig','TrainigController@index');
 Route::post('/trainig','TrainigController@post');
+
+Route::get('/home/profiel','ProfielController@search');
+Auth::routes();
