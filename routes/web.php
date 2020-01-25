@@ -23,7 +23,7 @@ Route::post('/form','FormController@post');
 Route::get('/trainig','TrainigController@index');
 Route::post('/trainig','TrainigController@post');
 
-Route::get('/home/profiel/{id}','ProfielController@show');
+Route::get('/home/profiel/{id}','ProfielController@index');
 Route::post('/home/profiel/{id}','ProfielController@edit');
 Auth::routes();
 

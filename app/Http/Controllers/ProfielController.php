@@ -11,7 +11,7 @@ class ProfielController extends Controller
 { 
     
     
-    public function show(Request $request){
+    public function index(Request $request){
 
         $id = Auth::user()->id;
         $user = User::find($id);
@@ -23,13 +23,43 @@ class ProfielController extends Controller
 
     public function edit(Request $request){
         $id = Auth::user()->id;
-        $user = $user = Auth::user();
-        $form = $request -> all();
+        $user = Auth::user();
+        $form = $request->all();
         unset($form['_token']);
-        $user -> fill($form) -> save();
-
+        $user->fill($form)->save();
 
         return redirect('home/profiel/'.Auth::id());
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        $restdata->fill($form)->save();
+
+        return redirect('home/profiel/'.Auth::id());
+    }
+
+    public function show(Request $request)
+    {
+        //
+    }
+
+
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        //
     }
 
 

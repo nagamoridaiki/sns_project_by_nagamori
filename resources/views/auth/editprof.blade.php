@@ -16,19 +16,23 @@
 </div>
 @endif
 
+
+<form method="post" action="/home/profiel/{{Auth::id()}}">
 <table>
-<form action=" /home/profiel/{{Auth::id()}}" method="post">
-    {{ csrf_field() }}
+{{ csrf_field() }}
     <input type="hidden" name="id" value="{{Auth::id()}}">
-    <tr><th>Name:</th><td><input type="test" name="name" value="{{$form->name ?? '' }}"></td></tr>
-    <tr><th>birthday:</th><td><input type="date" name="name" value="{{$form->birthday ?? '' }}"></td></tr>
-    <tr><th>job:</th><td><input type="test" name="name" value="{{$form->job ?? '' }}"></td></tr>
-    <tr><th>skill:</th><td><input type="test" name="name" value="{{$form->skill ?? '' }}"></td></tr>
-    <tr><th>hobby:</th><td><input type="test" name="name" value="{{$form->hobby ?? '' }}"></td></tr>
-    <tr><th>email:</th><td><input type="email" name="name" value="{{$form->email ?? '' }}"></td></tr>
+    <tr><th>Name:</th><td><input type="text" name="name" value="{{$form->name ?? '' }}"></td></tr>
+    <tr><th>birthday:</th><td><input type="date" name="birthday" value="{{$form->birthday ?? '' }}"></td></tr>
+    <tr><th>job:</th><td><input type="text" name="job" value="{{$form->job ?? '' }}"></td></tr>
+    <tr><th>skill:</th><td><input type="text" name="skill" value="{{$form->skill ?? '' }}"></td></tr>
+    <tr><th>hobby:</th><td><input type="text" name="hobby" value="{{$form->hobby ?? '' }}"></td></tr>
+    <tr><th>email:</th><td><input type="email" name="email" value="{{$form->email ?? '' }}"></td></tr>
     <tr><th></th><td><input type="submit" value="send"></td></tr>
+    </table>
 </form>
-</table>
+
+
+
 
 
 
