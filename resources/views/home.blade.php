@@ -15,6 +15,17 @@
                     @endif
 
                     You are logged in!
+                    <br>
+
+                    @auth
+                    <p>idは{{$id}}です</p>
+                    <br>
+                    <a href="{{ url('/home/profiel/'.Auth::id()) }}">プロフィール画面へ</a>
+                    <br>
+                    @endauth
+                   
+
+                    
                 </div>
             </div>
         </div>

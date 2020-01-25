@@ -1,5 +1,6 @@
 <?php
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,5 +23,8 @@ Route::post('/form','FormController@post');
 Route::get('/trainig','TrainigController@index');
 Route::post('/trainig','TrainigController@post');
 
-Route::get('/home/profiel','ProfielController@search');
+Route::get('/home/profiel/{id}','ProfielController@show');
 Auth::routes();
+
+Route::get('/home/editprof/{id}','EditprofController@index');
+Route::post('/home/editprof/{id}','EditprofController@post');
