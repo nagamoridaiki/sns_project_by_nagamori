@@ -1,14 +1,7 @@
-<html>
-<head>
-    <title>
-    プロフィール
-    </title>
+@extends('layouts.app')
 
+@section('content')
 
-    
-</head>
-
-<body>
 
 <h1>編集画面</h1>
 
@@ -49,10 +42,4 @@
 
 
 
-
-
-
-</body>
-
-
-</html>
+@endsection

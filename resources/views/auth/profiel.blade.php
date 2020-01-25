@@ -1,14 +1,8 @@
-<html>
-<head>
-    <title>
-    プロフィール
-    </title>
+@extends('layouts.app')
+
+@section('content')
 
 
-    
-</head>
-
-<body>
 
 <h1>プロフィール画面</h1>
 
@@ -25,29 +19,10 @@
 <tr><th>updated_at</th><td>{{$user -> updated_at }}</td></tr>
 </table>
 
-
-<br>
-
-{{$user }}
-
-<br>
-
 @auth
 <br>
 <a href="{{ url('/home/editprof/'.Auth::id()) }}">プロフィールを編集する</a>
 <br>
 @endauth
 
-
-
-
-
-
-
-
-
-
-</body>
-
-
-</html>
+@endsection
