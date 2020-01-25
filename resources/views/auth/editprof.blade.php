@@ -24,7 +24,7 @@
 @endif
 
 <table>
-<form action="'/home/profiel/'.Auth::id()" method="post">
+<form action=" /home/editprof/{{Auth::id()}}" method="post">
     {{ csrf_field() }}
     <input type="hidden" name="id" value="{{Auth::id()}}">
     <tr><th>Name:</th><td><input type="test" name="name" value="{{$form->name ?? '' }}"></td></tr>
@@ -42,8 +42,6 @@
 
 
 @auth
-<p>idは{{$id}}です</p>
-<br>
 <a href="{{ url('/home/profiel/'.Auth::id()) }}">プロフィール画面へ</a>
 <br>
 @endauth

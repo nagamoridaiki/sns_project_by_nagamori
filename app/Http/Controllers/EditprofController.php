@@ -13,9 +13,9 @@ class EditprofController extends Controller
     public function index(){
 
         $id = Auth::user()->id;
+        $user = Auth::user();
 
-
-        return view('auth/editprof',['id' => $id]);
+        return view('auth/editprof',['form' => $user ,'id' => $id]);
     }
 
     public function post(Request $request){
