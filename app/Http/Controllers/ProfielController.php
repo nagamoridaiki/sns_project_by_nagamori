@@ -24,11 +24,8 @@ class ProfielController extends Controller
     public function edit(Request $request){
         $id = Auth::user()->id;
         $user = Auth::user();
-        $form = $request->all();
-        unset($form['_token']);
-        $user->fill($form)->save();
 
-        return redirect('home/profiel/'.Auth::id());
+        return view('auth/editprof',['form' => $user ,'id' => $id]);
     }
 
     public function create()
@@ -52,9 +49,15 @@ class ProfielController extends Controller
 
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+        $user = Auth::user();
+        $form = $request->all();
+        unset($form['_token']);
+        $user->fill($form)->save();
+
+        return redirect('home/profiel/'.Auth::id());
     }
 
     public function destroy($id)

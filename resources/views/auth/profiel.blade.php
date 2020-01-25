@@ -21,7 +21,7 @@
 
 @auth
 <br>
-<a href="{{ url('/home/editprof/'.Auth::id()) }}">プロフィールを編集する</a>
+<a href="{{ url('/home/profiel/edit/'.Auth::id()) }}">プロフィールを編集する</a>
 <br>
 @endauth
 

@@ -17,7 +17,7 @@
 @endif
 
 
-<form method="post" action="/home/profiel/{{Auth::id()}}">
+<form method="post" action="/home/profiel/update/{{Auth::id()}}">
 <table>
 {{ csrf_field() }}
     <input type="hidden" name="id" value="{{Auth::id()}}">
