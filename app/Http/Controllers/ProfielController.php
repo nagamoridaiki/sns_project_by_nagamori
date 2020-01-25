@@ -21,5 +21,16 @@ class ProfielController extends Controller
         return view('auth/profiel', [ 'user' => $user , 'name' => $name , 'id'=>$id]);
     }
 
+    public function edit(Request $request){
+        $id = Auth::user()->id;
+        $user = $user = Auth::user();
+        $form = $request -> all();
+        unset($form['_token']);
+        $user -> fill($form) -> save();
+
+
+        return redirect('home/profiel/'.Auth::id());
+    }
+
 
 }

@@ -24,8 +24,8 @@ Route::get('/trainig','TrainigController@index');
 Route::post('/trainig','TrainigController@post');
 
 Route::get('/home/profiel/{id}','ProfielController@show');
+Route::post('/home/profiel/{id}','ProfielController@edit');
 Auth::routes();
 
 Route::get('/home/editprof/{id}','EditprofController@index');
-Route::post('/home/editprof/{id}','EditprofController@post');
 
