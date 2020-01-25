@@ -19,10 +19,14 @@ class EditprofController extends Controller
     }
 
     public function post(Request $request){
-
+        //$this -> validate($request , User::$rules);
         $id = Auth::user()->id;
+        $user = $user = Auth::user();
+        $form = $request -> all();
+        unset($form['_token']);
+        $user -> fill($form) -> save();
 
-        return view('auth/editprof');
+        return redirect('home/profiel/'.Auth::id());
 
     }
 }
