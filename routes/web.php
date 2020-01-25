@@ -28,3 +28,4 @@ Auth::routes();
 
 Route::get('/home/editprof/{id}','EditprofController@index');
 Route::post('/home/editprof/{id}','EditprofController@post');
+

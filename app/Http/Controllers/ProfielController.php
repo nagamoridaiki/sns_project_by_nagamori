@@ -14,10 +14,12 @@ class ProfielController extends Controller
     public function show(Request $request){
 
         $id = Auth::user()->id;
-        $user = User::find(1);
+        $user = User::find($id);
         $name = $user -> email;
 
 
         return view('auth/profiel', [ 'user' => $user , 'name' => $name , 'id'=>$id]);
     }
+
+
 }
