@@ -23,8 +23,8 @@ Route::post('/form','FormController@post');
 Route::get('/trainig','TrainigController@index');
 Route::post('/trainig','TrainigController@post');
 
-Route::get('/home/profiel/{id}','ProfielController@index');
-Route::get('/home/profiel/edit/{id}','ProfielController@edit');
-Route::post('/home/profiel/update/{id}','ProfielController@update');
+Route::get('/profiel/index/{id}','ProfielController@index');
+Route::get('/profiel/edit/{id}','ProfielController@edit');
+Route::post('/profiel/update/{id}','ProfielController@update');
 Auth::routes();
 

@@ -20,7 +20,7 @@
                     @auth
                     <p>idは{{$id}}です</p>
                     <br>
-                    <a href="{{ url('/home/profiel/'.Auth::id()) }}">プロフィール画面へ</a>
+                    <a href="{{ url('/profiel/index/'.Auth::id()) }}">プロフィール画面へ</a>
                     <br>
                     @endauth
                    

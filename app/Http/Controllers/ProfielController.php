@@ -18,36 +18,15 @@ class ProfielController extends Controller
         $name = $user -> email;
 
 
-        return view('auth/profiel', [ 'user' => $user , 'name' => $name , 'id'=>$id]);
+        return view('profiel/index', [ 'user' => $user , 'name' => $name , 'id'=>$id]);
     }
 
     public function edit(Request $request){
         $id = Auth::user()->id;
         $user = Auth::user();
 
-        return view('auth/editprof',['form' => $user ,'id' => $id]);
+        return view('profiel/edit',['form' => $user ,'id' => $id]);
     }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        $form = $request->all();
-        unset($form['_token']);
-        $restdata->fill($form)->save();
-
-        return redirect('home/profiel/'.Auth::id());
-    }
-
-    public function show(Request $request)
-    {
-        //
-    }
-
-
 
     public function update(Request $request)
     {
@@ -57,8 +36,24 @@ class ProfielController extends Controller
         unset($form['_token']);
         $user->fill($form)->save();
 
-        return redirect('home/profiel/'.Auth::id());
+        return redirect('profiel/index/'.Auth::id());
     }
+
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+    }
+
+    public function show(Request $request)
+    {
+        //
+    }
+
 
     public function destroy($id)
     {
