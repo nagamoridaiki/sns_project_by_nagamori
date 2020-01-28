@@ -15,10 +15,15 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('send_user_id');
-            $table->integer('receive_user_id');
+            $table->bigInteger('send_user_id')->unsigned();
+            $table->bigInteger('receive_user_id')->unsigned();
             $table->text('message_text');
             $table->boolean('is_readed');
+            $table->timestamps();
+            //外部キーの設定
+            $table->foreign('send_user_id')->references('id')->on('users');
+            $table->foreign('receive_user_id')->references('id')->on('users');
+
         });
     }
 
