@@ -22,14 +22,14 @@ class ProfielController extends Controller
         $others = User::where('id','<>', $user->id)->get();
 
 
-        return view('profiel/index', [ 'user' => $user , 'name' => $name , 'id'=>$id ], compact('others'));
+        return view('users/index', [ 'user' => $user , 'name' => $name , 'id'=>$id ], compact('others'));
     }
 
     public function edit(Request $request){
         $id = Auth::user()->id;
         $user = Auth::user();
 
-        return view('profiel/edit',['form' => $user ,'id' => $id]);
+        return view('users/edit',['form' => $user ,'id' => $id]);
     }
 
     public function update(Request $request)
@@ -40,7 +40,7 @@ class ProfielController extends Controller
         unset($form['_token']);
         $user->fill($form)->save();
 
-        return redirect('profiel/index/'.Auth::id());
+        return redirect('users/index/'.Auth::id());
     }
 
 
