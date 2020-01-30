@@ -28,3 +28,7 @@ Route::get('/profiel/edit/{id}','ProfielController@edit');
 Route::post('/profiel/update/{id}','ProfielController@update');
 Auth::routes();
 
+Route::get('/chat/index/{id}', 'ChatController@index');
+Route::post('/chat/send/{id}', 'ChatController@send');
+Auth::routes();
+

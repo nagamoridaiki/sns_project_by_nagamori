@@ -25,4 +25,33 @@
 <br>
 @endauth
 
+<br>
+<h1>友達</h1>
+
+<br>
+<table class="table">
+<thead>
+<tr>
+    <th>#</th>
+    <th>Name</th>
+    <th></th>
+</tr>
+</thead>
+<tbody>
+@foreach($others as $key => $user)
+    <tr>
+        <th>{{$loop->iteration}}</th>
+        <td>{{$user->name}}</td>
+
+        <td><a href="{{ url('/chat/index/'.$user->id) }}"><button type="button" class="btn btn-primary">chat</button></a></td>
+
+
+    </tr>
+@endforeach
+</tbody>
+
+</table>
+
 @endsection
+
+

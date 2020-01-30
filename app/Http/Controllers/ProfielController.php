@@ -13,12 +13,16 @@ class ProfielController extends Controller
     
     public function index(Request $request){
 
+
+
         $id = Auth::user()->id;
         $user = User::find($id);
         $name = $user -> email;
 
+        $others = User::where('id','<>', $user->id)->get();
 
-        return view('profiel/index', [ 'user' => $user , 'name' => $name , 'id'=>$id]);
+
+        return view('profiel/index', [ 'user' => $user , 'name' => $name , 'id'=>$id ], compact('others'));
     }
 
     public function edit(Request $request){
