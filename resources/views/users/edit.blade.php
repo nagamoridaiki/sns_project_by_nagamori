@@ -17,7 +17,7 @@
 @endif
 
 
-<form method="post" action="/profiel/update/{{Auth::id()}}">
+<form method="post" action="/users/update/{{Auth::id()}}">
 
 <table>
 {{ csrf_field() }}
@@ -47,7 +47,7 @@
 
 
 @auth
-<a href="{{ url('/profiel/index/'.Auth::id()) }}">プロフィール画面へ</a>
+<a href="{{ url('/users/index/'.Auth::id()) }}">プロフィール画面へ</a>
 <br>
 @endauth
 

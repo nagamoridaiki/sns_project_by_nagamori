@@ -21,7 +21,7 @@
 
 @auth
 <br>
-<a href="{{ url('/profiel/edit/'.Auth::id()) }}">プロフィールを編集する</a>
+<a href="{{ url('/users/edit/'.Auth::id()) }}">プロフィールを編集する</a>
 <br>
 @endauth
 
@@ -43,7 +43,7 @@
         <th>{{$loop->iteration}}</th>
         <td>{{$user->name}}</td>
 
-        <td><a href="{{ url('/chat/index/'.$user->id) }}"><button type="button" class="btn btn-primary">chat</button></a></td>
+        <td><a href="{{ url('/messages/index/'.$user->id) }}"><button type="button" class="btn btn-primary">chat</button></a></td>
 
 
     </tr>

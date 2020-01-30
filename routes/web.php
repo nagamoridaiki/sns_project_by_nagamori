@@ -23,12 +23,12 @@ Route::post('/form','FormController@post');
 Route::get('/trainig','TrainigController@index');
 Route::post('/trainig','TrainigController@post');
 
-Route::get('/profiel/index/{id}','ProfielController@index');
-Route::get('/profiel/edit/{id}','ProfielController@edit');
-Route::post('/profiel/update/{id}','ProfielController@update');
+Route::get('/users/index/{id}','UsersController@index');
+Route::get('/users/edit/{id}','UsersController@edit');
+Route::post('/users/update/{id}','UsersController@update');
 Auth::routes();
 
-Route::get('/chat/index/{id}', 'ChatController@index');
-Route::post('/chat/send/{id}', 'ChatController@send');
+Route::get('/messages/index/{id}', 'MessagesController@index');
+Route::post('/messages/send/{id}', 'MessagesController@send');
 Auth::routes();
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class ProfielController extends Controller
+class UsersController extends Controller
 { 
     
     
