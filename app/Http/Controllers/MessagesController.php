@@ -38,13 +38,21 @@ class MessagesController extends Controller
         
     }
     
-    public function send(Request $request){
+    public function send(Request $request , $id){
 
         $user = Auth::User();
-        $friend_id = $request->id;
 
 
-        return view('message/',['friend_id' => $friend_id]);
+        $message = new Messages;
+        $request->send_user_id = $user->id;
+        $request->receive_user_id = $id;
+        $form = $request->all();
+
+        unset($form['_token']);
+        $message->fill($form)->save();
+
+        return redirect('/messages/index/'.$id);
+        
 
 
     }

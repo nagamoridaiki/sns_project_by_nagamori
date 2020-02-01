@@ -6,9 +6,6 @@
 
 <h1>チャット画面</h1>
 
-<br>
-<p>loginID.{{$loginId}}</p>
-<p>friendId.{{$friend->id}}</p>
 
 <h1><th>Name</th><td>{{$friend->name}}</td></h1>
 
@@ -22,7 +19,7 @@
     <div id="room">
         @foreach($messageall as $key => $message)
             {{--   送信したメッセージ  --}}
-            @if($message->send_user_id == $loginId)
+            @if($message->send_user_id == $loginId && $message->receive_user_id == $friend->id)
                 <div class="send" style="text-align: right">
                     <p>{{$friendsall->find($message->send_user_id)->name}}</p>
                     <p>{{$message->message_text}}</p>
@@ -32,7 +29,7 @@
             @endif
  
             {{--   受信したメッセージ  --}}
-            @if($message->receive_user_id == $loginId)
+            @if($message->receive_user_id == $loginId && $message->send_user_id == $friend->id)
                 <div class="recieve" style="text-align: left">
                     <p>{{$friendsall->find($message->send_user_id)->name}}</p>
                     <p>{{$message->message_text}}</p>
@@ -43,14 +40,17 @@
 
     </div>
  
-    <form>
-        <textarea name="message" style="width:100%"></textarea>
-        <button type="button" id="btn_send">送信</button>
+    <form method="post" action="/messages/send/{{$friend->id}}">
+        <table>
+            {{ csrf_field() }}
+            <textarea name="message_text" style="width:100%"></textarea>
+            <input type="hidden" name="send_user_id" value="{{$param['send']}}">
+            <input type="hidden" name="receive_user_id" value="{{$param['recieve']}}">
+            <input type="submit" value="送信">
+
+        </table>
     </form>
- 
-    <input type="hidden" name="send" value="{{$param['send']}}">
-    <input type="hidden" name="recieve" value="{{$param['recieve']}}">
-    <input type="hidden" name="login" value="{{\Illuminate\Support\Facades\Auth::id()}}">
+
  
 </div>
  
