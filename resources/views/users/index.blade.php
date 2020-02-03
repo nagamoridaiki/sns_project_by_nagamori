@@ -62,9 +62,9 @@
         @endphp
 
         @if($flag == 0)
-            <td><a href="{{ url('/users/create/'.$user->id) }}"><button type="button" class="btn btn-primary">友達になる</button></a></td>
+            <td><a href="{{ url('/users/create/'.$user->id) }}"><button type="button" class="btn btn-primary">フォローする</button></a></td>
         @else
-            <td>友達</td>
+            <td>友達になっています　<a href="{{ url('/users/destroy/'.$user->id) }}"><button type="button" class="btn btn-primary">フォローを外す</button></a></td>
         @endif
             
     </tr>

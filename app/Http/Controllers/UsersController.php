@@ -73,9 +73,12 @@ class UsersController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request , $id)
     {
-        //
+        $user_id = Auth::User()->id;
+        $friend_id = $id;
+        Relationships::where('user_id',$user_id)->where('friend_id',$friend_id)->delete();
+        return redirect('users/index/'.Auth::id());
     }
 
 
