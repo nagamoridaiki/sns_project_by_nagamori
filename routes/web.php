@@ -24,6 +24,7 @@ Route::get('/trainig','TrainigController@index');
 Route::post('/trainig','TrainigController@post');
 
 Route::get('/users/index/{id}','UsersController@index');
+Route::post('/users/show/{id}','UsersController@show');
 Route::get('/users/edit/{id}','UsersController@edit');
 Route::post('/users/update/{id}','UsersController@update');
 Route::get('/users/create/{id}','UsersController@create');

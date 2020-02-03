@@ -15,20 +15,29 @@ class UsersController extends Controller
     
     public function index(Request $request){
 
-
-
         $id = Auth::user()->id;
         $user = User::find($id);
         $name = $user -> email;
-
         $relationships = Relationships::all()->where('user_id',$id);
-        
-
-
         $others = User::where('id','<>', $user->id)->get();
 
+        return view('users/index', [ 'user' => $user , 'name' => $name , 'id'=>$id , 'relationships'=>$relationships ], compact('others'));
+    }
+
+    public function show(Request $request, $id)
+    {
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $name = $user -> email;
+        $relationships = Relationships::all()->where('user_id',$id);
+        $others = User::where('id','<>', $user->id)->where('name',$request->name)->get();
+
+        if($request->name == ""){
+            $others = User::where('id','<>', $user->id)->get();
+        }
 
         return view('users/index', [ 'user' => $user , 'name' => $name , 'id'=>$id , 'relationships'=>$relationships ], compact('others'));
+        
     }
 
     public function edit(Request $request){
@@ -55,7 +64,6 @@ class UsersController extends Controller
         $relationship = new Relationships;
         $user_id = Auth::User()->id;
         $friend_id = $id;
-
         $relationship->fill(['user_id'=>$user_id , 'friend_id'=>$friend_id ]);
         $relationship->save();
 
@@ -67,10 +75,7 @@ class UsersController extends Controller
     {
     }
 
-    public function show(Request $request)
-    {
-        //
-    }
+
 
 
     public function destroy(Request $request , $id)
