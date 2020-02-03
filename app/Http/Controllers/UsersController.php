@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\User;
+use App\Relationships;
+use App\Messages;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -19,10 +21,14 @@ class UsersController extends Controller
         $user = User::find($id);
         $name = $user -> email;
 
+        $relationships = Relationships::all()->where('user_id',$id);
+        
+
+
         $others = User::where('id','<>', $user->id)->get();
 
 
-        return view('users/index', [ 'user' => $user , 'name' => $name , 'id'=>$id ], compact('others'));
+        return view('users/index', [ 'user' => $user , 'name' => $name , 'id'=>$id , 'relationships'=>$relationships ], compact('others'));
     }
 
     public function edit(Request $request){
@@ -43,10 +49,18 @@ class UsersController extends Controller
         return redirect('users/index/'.Auth::id());
     }
 
-
-    public function create()
+    //友達申請 relationshipモデル作成
+    public function create(Request $request , $id)
     {
-        //
+        $relationship = new Relationships;
+        $user_id = Auth::User()->id;
+        $friend_id = $id;
+
+        $relationship->fill(['user_id'=>$user_id , 'friend_id'=>$friend_id ]);
+        $relationship->save();
+
+        return redirect('users/index/'.Auth::id());
+                
     }
 
     public function store(Request $request)

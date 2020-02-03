@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\User;
 use App\Messages;
-use App\Relationship;
+use App\Relationships;
 use Illuminate\Support\Facades\Auth;
 
 

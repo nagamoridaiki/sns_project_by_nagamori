@@ -26,6 +26,7 @@ Route::post('/trainig','TrainigController@post');
 Route::get('/users/index/{id}','UsersController@index');
 Route::get('/users/edit/{id}','UsersController@edit');
 Route::post('/users/update/{id}','UsersController@update');
+Route::get('/users/create/{id}','UsersController@create');
 Auth::routes();
 
 Route::get('/messages/index/{id}', 'MessagesController@index');

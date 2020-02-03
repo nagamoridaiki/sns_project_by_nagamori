@@ -25,8 +25,13 @@
 <br>
 @endauth
 
+
+
 <br>
 <h1>友達</h1>
+<!--テスト用コード
+{{$relationships}}
+-->
 
 <br>
 <table class="table">
@@ -45,7 +50,23 @@
 
         <td><a href="{{ url('/messages/index/'.$user->id) }}"><button type="button" class="btn btn-primary">chat</button></a></td>
 
+        @php
+            $flag = 0;
+            foreach($relationships as $index => $value){
+                if($value->friend_id == $user->id){
+                    //echo 'すでに友達'.'<br>';
+                    $flag = 1;
+                }
+                
+            }
+        @endphp
 
+        @if($flag == 0)
+            <td><a href="{{ url('/users/create/'.$user->id) }}"><button type="button" class="btn btn-primary">友達になる</button></a></td>
+        @else
+            <td>友達</td>
+        @endif
+            
     </tr>
 @endforeach
 </tbody>
