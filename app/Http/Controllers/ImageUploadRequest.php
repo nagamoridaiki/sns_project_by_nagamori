@@ -9,13 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ImageUploadRequest extends Controller
 {
-    public function postImageConfirm(ImageUploadRequest $request){
+    public function postImageConfirm(Request $request){
         $imagefile = $request->file('imagefile');
     
         $temp_path = $imagefile->store('public/temp');
         $read_temp_path = str_replace('public/', 'storage/', $temp_path); //追加
-
-    
     
         $data = array(
             'temp_path' => $temp_path,
@@ -23,7 +21,7 @@ class ImageUploadRequest extends Controller
         );
         $request->session()->put('data', $data);
     
-        return view('image_confirm', compact('data') );
+        return view('users/image_confirm', compact('data') );
     }
 
 
@@ -48,7 +46,7 @@ class ImageUploadRequest extends Controller
     
         $this->productcontroller->path = $read_path;
         $this->productcontroller->save();
-        return view('image_complete');
+        return view('users/image_complete');
 
     }
 
