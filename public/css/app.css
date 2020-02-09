@@ -46,16 +46,134 @@
 
 /*index.blade.css
 */
+
 #profiel {
   float: left;
   width: 350px;
   margin-right: 50px;
+  background-color: aquamarine;
+  height:500px;
+  
 }
 
-#friend_list {
-  float: left;
-  margin-left: 100px;
+.profiel-line{
+  padding-top:10px 
 }
+
+.profiel-head {
+  margin-top:20px;
+  text-align: center;
+  background-color: #5dca88;
+  width:330px;
+  margin:0 auto;
+  box-shadow: 4px 4px #1a7940;
+
+}
+
+.profiel-table{
+  background-color: #5dca88;
+  box-shadow: 4px 4px #1a7940;
+  width:330px;
+  margin:0 auto;
+}
+
+.profiel-edit {
+  text-align: center;
+
+}
+
+.profiel-edit a{
+  background-color: #5dca88;
+  color: white;
+  padding:10px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px #1a7940;
+}
+
+.profiel-edit a:hover{
+  background-color: #5dca88;
+  color: white;
+  box-shadow: none;
+  padding:10px 10px;
+  border-radius: 5px;
+  top: 7px;
+  position: relative;
+}
+
+
+.friend_top{
+  width:400px;
+  height:500px;
+  background-color:aquamarine;
+  float: left;
+}
+
+.friend-theme {
+  margin-top:20px;
+  text-align: center;
+  background-color: #5dca88;
+  margin:0 auto;
+  box-shadow: 4px 4px #1a7940;
+
+}
+
+.friend-main{
+  padding:10px 10px 10px 10px ;
+}
+
+.friend-serch{
+  background-color: #5dca88;
+  box-shadow: 4px 4px #1a7940;
+  padding:10px 10px;
+}
+
+
+.serch-window{
+  float: left;
+  margin-right:10px;
+}
+
+.serch-submit input{
+  background-color: #1a7940;
+  color: white;
+  box-shadow: 4px 4px #123c24;
+
+}
+
+.serch-submit input:hover{
+  background-color: #1a7940;
+  color: white;
+  top: 4px;
+  position: relative;
+  box-shadow: none;
+}
+
+.friend-table{
+  margin-top:10px;
+  padding-top:20px;
+  padding-left:10px;
+  height:350px;
+  background-color: #5dca88;
+  box-shadow: 4px 4px #1a7940;
+}
+
+.friend-table-body a{
+  margin-right:10px;
+}
+
+.iteration{
+  margin-right:20px;
+}
+
+.itr-name{
+  margin-right:20px;
+}
+
+
+.photo-edit{
+  float: right;
+}
+
 
 
 
@@ -2863,6 +2981,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn {
+  margin-right: 15px;
   display: inline-block;
   font-weight: 400;
   color: #212529;
@@ -2913,8 +3032,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #1a7940;
+  border-color: #123c24;
 }
 
 .btn-primary:hover {
