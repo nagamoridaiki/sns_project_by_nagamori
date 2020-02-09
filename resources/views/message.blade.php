@@ -50,10 +50,12 @@
 
         </table>
     </form>
-
- 
 </div>
- 
+    <br>
+    @auth
+        <a href="{{ url('/users/index/'.Auth::id()) }}">プロフィール画面へ</a>
+        <br>
+    @endauth 
 @endsection
 
 

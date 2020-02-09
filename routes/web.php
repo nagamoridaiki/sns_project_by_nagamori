@@ -29,7 +29,11 @@ Route::get('/users/edit/{id}','UsersController@edit');
 Route::post('/users/update/{id}','UsersController@update');
 Route::get('/users/create/{id}','UsersController@create');
 Route::get('/users/destroy/{id}','UsersController@destroy');
+Route::get('/users/edit/image_input/{id}','ImageUploadRequest@getImageInput');
+Route::post('/users/edit/image_confirm/{id}', 'ImageUploadRequest@postImageConfirm');
+Route::post('/users/edit/image_complete/{id}', 'ImageUploadRequest@postImageComplete');
 Auth::routes();
+
 
 Route::get('/messages/index/{id}', 'MessagesController@index');
 Route::post('/messages/send/{id}', 'MessagesController@send');
