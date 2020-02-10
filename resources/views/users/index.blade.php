@@ -6,11 +6,9 @@
 <div id="profiel">
     <div class="profiel-line">
         <div class="profiel-head">
-            <h3>プロフィール画面</h3>
+            <h3 class="fas fa-address-book">プロフィール画面</h3>
         </div>
-        <div class="profiel-table">
-        <img src="{{ asset('/kao.jpeg') }}">
-        
+        <div class="profiel-table">        
             <table>
             <tr><th>ID</th><td>{{$user -> id}}</td></tr>
             <tr><th>Name</th><td>{{$user -> name}}</td></tr>
@@ -37,7 +35,7 @@
 <div class="friend_top">
     <div class="friend-main">
         <div class="friend-theme">
-            <h3>友達</h3>
+            <h3 class="fas fa-child">友達</h3>
         </div>
         <div class="friend-serch">
             名前で検索
