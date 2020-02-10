@@ -6,6 +6,7 @@ use App\User;
 use App\Messages;
 use App\Relationships;
 use Illuminate\Support\Facades\Auth;
+use Storage;
 
 class ImageUploadRequest extends Controller
 {
@@ -44,8 +45,10 @@ class ImageUploadRequest extends Controller
         $read_path = str_replace('public/', 'storage/', $storage_path);
         //商品一覧画面から画像を読み込むときのパスはstorage/productimage/xxx.jpeg"
     
-        $this->productcontroller->path = $read_path;
-        $this->productcontroller->save();
+        $users = Auth::user();
+
+        $users->path = $read_path;
+        $users->save();
         return view('users/image_complete');
 
     }

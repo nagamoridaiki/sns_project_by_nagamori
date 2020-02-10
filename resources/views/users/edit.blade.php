@@ -58,6 +58,8 @@
     <input type="submit" name="confirm" id="button" value="確認" />
 </form>
 
+<img class="logo" src="storage/app/public/productimage/kao.jpeg" alt="logo">
+<img src="{{ $users->path ?? '' }}" width="200" height="130">
 
 
 </div>

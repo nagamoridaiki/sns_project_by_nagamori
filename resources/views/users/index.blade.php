@@ -9,6 +9,8 @@
             <h3>プロフィール画面</h3>
         </div>
         <div class="profiel-table">
+        <img src="{{ asset('/kao.jpeg') }}">
+        
             <table>
             <tr><th>ID</th><td>{{$user -> id}}</td></tr>
             <tr><th>Name</th><td>{{$user -> name}}</td></tr>
