@@ -32,10 +32,13 @@ Route::get('/users/destroy/{id}','UsersController@destroy');
 Route::get('/users/edit/image_input/{id}','ImageUploadRequest@getImageInput');
 Route::post('/users/edit/image_confirm/{id}', 'ImageUploadRequest@postImageConfirm');
 Route::post('/users/edit/image_complete/{id}', 'ImageUploadRequest@postImageComplete');
+Route::get('/users/photo/{id}' , 'UsersController@photo');
 Auth::routes();
 
 
 Route::get('/messages/index/{id}', 'MessagesController@index');
 Route::post('/messages/send/{id}', 'MessagesController@send');
 Auth::routes();
+
+
 

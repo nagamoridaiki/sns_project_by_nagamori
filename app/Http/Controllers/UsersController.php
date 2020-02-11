@@ -86,5 +86,14 @@ class UsersController extends Controller
         return redirect('users/index/'.Auth::id());
     }
 
+    public function photo(Request $request , $id)
+    {
+        //$img = file_get_contents("storage/app/public/cat.jpg");
+
+        
+    return view('users/photo' /*, 'img'->$img*/);
+
+    }
+
 
 }
