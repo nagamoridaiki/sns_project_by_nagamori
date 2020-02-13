@@ -64,6 +64,12 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        //追加　storage/app/publicの中に画像が保存されるが、public/imagesファイルに画像の保存先を変更したい
+        'public_uploads' => [
+            'driver' => 'local',
+            'root'   => public_path(),
+        ],
+
     ],
 
 ];

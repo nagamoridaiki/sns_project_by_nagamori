@@ -13,8 +13,8 @@ class ImageUploadRequest extends Controller
     public function postImageConfirm(Request $request){
         $imagefile = $request->file('imagefile');
     
-        $temp_path = $imagefile->store('public/temp');
-        $read_temp_path = str_replace('public/', 'storage/', $temp_path); //追加
+        $temp_path = $imagefile->store('public/image');
+        $read_temp_path = str_replace('public/' , 'storage/', $temp_path); //追加
     
         $data = array(
             'temp_path' => $temp_path,
@@ -42,14 +42,15 @@ class ImageUploadRequest extends Controller
         Storage::move($temp_path, $storage_path);
         //Storageファサードのmoveメソッドで、第一引数->第二引数へファイルを移動
     
-        $read_path = str_replace('public/', 'storage/', $storage_path);
+        $read_path = str_replace('public/', 'storage/app/public/', $storage_path);
         //商品一覧画面から画像を読み込むときのパスはstorage/productimage/xxx.jpeg"
     
         $users = Auth::user();
 
         $users->path = $read_path;
         $users->save();
-        return view('users/image_complete');
+
+        return view('users/image_complete' , 'read_path'-> $read_path);
 
     }
 

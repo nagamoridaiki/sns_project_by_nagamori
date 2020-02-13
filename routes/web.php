@@ -33,12 +33,17 @@ Route::get('/users/edit/image_input/{id}','ImageUploadRequest@getImageInput');
 Route::post('/users/edit/image_confirm/{id}', 'ImageUploadRequest@postImageConfirm');
 Route::post('/users/edit/image_complete/{id}', 'ImageUploadRequest@postImageComplete');
 Route::get('/users/photo/{id}' , 'UsersController@photo');
+Route::get('/users/photocreate/{id}', 'PhotosController@create');
+Route::post('/users/photocreate', 'PhotosController@store');
+
 Auth::routes();
 
 
 Route::get('/messages/index/{id}', 'MessagesController@index');
 Route::post('/messages/send/{id}', 'MessagesController@send');
 Auth::routes();
+
+
 
 
 

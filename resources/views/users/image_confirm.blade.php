@@ -7,7 +7,7 @@
         <table>
             <tr>
                 <td>画像</td>
-                <td><img src="{{ $data['read_temp_path'] }}" width="200" height="130"></td>
+                <td><img src="{{ $data['temp_path'] }}" width="200" height="130"></td>
             </tr>
 
         </table>

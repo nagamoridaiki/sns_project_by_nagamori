@@ -22,6 +22,7 @@
 <table>
 {{ csrf_field() }}
     <input type="hidden" name="id" value="{{Auth::id()}}">
+
     
     <tr><th>Name:</th><td>
     <input type="text" name="name" value="{{$form->name ?? '' }}"></td></tr>
@@ -47,6 +48,9 @@
 <br>
 @endauth
 
+<a href="{{ url('/users/photo/'.Auth::id()) }}">画像確認</a>
+
+<a href="{{ url('/users/photocreate/'.Auth::id()) }}">画像アップロード</a>
 <div class="photo-edit">
 
 <form action="/users/edit/image_confirm/{{Auth::id()}}" method="post" enctype="multipart/form-data" id="form">
@@ -54,12 +58,8 @@
     ファイル：
     <input type="file" name="imagefile" value=""/><br /><br />
 
-
     <input type="submit" name="confirm" id="button" value="確認" />
 </form>
-
-<img class="logo" src="storage/app/public/productimage/kao.jpeg" alt="logo">
-<img src="{{ $users->path ?? '' }}" width="200" height="130">
 
 
 </div>
