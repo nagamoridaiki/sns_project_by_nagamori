@@ -21,21 +21,21 @@ class PhotosController extends Controller
     public function store(Request $request){
 
         //画像が fileName として送られてきていて、それを public/images に image.png という名前で保存する場合
-        $request->file('fileName')->storeAs('image', 'image.png', 'public_uploads');
+        $request->file('fileName')->storeAs('image', Auth::user()->name.'.png', 'public_uploads');
 
         //リクエストの全入力を取得する
         $input = $request->all();
-         
-          //getClientOriginalName():アップロードしたファイルのオリジナル名を取得します
-          $fileName = $input['fileName']->getClientOriginalName();
-         
-          //getRealPath():アップロードしたファイルのパスを取得します。
-          $image = Image::make($input['fileName']->getRealPath());
-         
-          //パス
-          $newpath = 'public/image/';
-         
-          return View('photos.complete')->with('path',$newpath);
+
+        //画像パス
+        $photo_path = '/image/'.Auth::user()->name.'.png';
+
+        //usersデータベースのpathに、画像までのパス情報を格納
+        $users = Auth::user();
+        $users->path = $photo_path;
+        $users->save();
+
+
+        return View('photos.complete')->with('path',$photo_path );
     }
 
 

@@ -20,8 +20,10 @@ class UsersController extends Controller
         $name = $user -> email;
         $relationships = Relationships::all()->where('user_id',$id);
         $others = User::where('id','<>', $user->id)->get();
+        $my_path = Auth::user()->path;
+        
 
-        return view('users/index', [ 'user' => $user , 'name' => $name , 'id'=>$id , 'relationships'=>$relationships ], compact('others'));
+        return view('users/index', compact('others' ,'my_path','relationships','id','name','user'));
     }
 
     public function show(Request $request, $id)

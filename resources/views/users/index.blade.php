@@ -10,14 +10,17 @@
         </div>
         <div class="profiel-table">        
             <table>
-            <tr><th>ID</th><td>{{$user -> id}}</td></tr>
-            <tr><th>Name</th><td>{{$user -> name}}</td></tr>
-            <tr><th>birthday</th><td>{{$user -> birthday}}</td></tr>
-            <tr><th>job</th><td>{{$user -> job}}</td></tr>
-            <tr><th>skill</th><td>{{$user -> skill}}</td></tr>
-            <tr><th>hobby</th><td>{{$user -> hobby}}</td></tr>
-            <tr><th>email</th><td>{{$user -> email}}</td></tr>
-            <tr><th>updated_at</th><td>{{$user -> updated_at }}</td></tr>
+            <div class="my_photo">
+                <img src="{{ $my_path }}"  width="85" height="100">
+            </div>
+            <tr><th>ID</th><td>{{$user -> id ?? '' }}</td></tr>
+            <tr><th>Name</th><td>{{$user -> name ?? '' }}</td></tr>
+            <tr><th>birthday</th><td>{{$user -> birthday ?? '' }}</td></tr>
+            <tr><th>job</th><td>{{$user -> job ?? '' }}</td></tr>
+            <tr><th>skill</th><td>{{$user -> skill ?? '' }}</td></tr>
+            <tr><th>hobby</th><td>{{$user -> hobby ?? '' }}</td></tr>
+            <tr><th>email</th><td>{{$user -> email ?? '' }}</td></tr>
+            <tr><th>updated_at</th><td>{{$user -> updated_at  ?? '' }}</td></tr>
             </table>
         </div>
         <div class="profiel-edit">
