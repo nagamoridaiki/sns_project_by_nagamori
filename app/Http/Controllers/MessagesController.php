@@ -19,6 +19,8 @@ class MessagesController extends Controller
         $friendsall = User::all();
         $friend = User::find($request->id);
         $messageall = Messages::all();
+        $my_path =  Auth::user()->path;
+        $friend_path = $friend->path;
         $param = [
             'send' => $loginId,
             'recieve' => $id,
@@ -34,7 +36,7 @@ class MessagesController extends Controller
         });
         $messages = $query->get();
         
-        return view('message',compact('param' , 'messages' ,'friend' ,'friendsall','loginId', 'messageall'));
+        return view('message',compact('my_path' , 'friend_path' , 'param' , 'messages' ,'friend' ,'friendsall','loginId', 'messageall'));
         
     }
     
