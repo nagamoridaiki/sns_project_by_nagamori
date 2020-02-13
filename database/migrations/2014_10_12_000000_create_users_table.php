@@ -20,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('job')->nullable();
             $table->string('skill')->nullable();
             $table->string('hobby')->nullable();
-            $table->string('email')->unique()->default('');;
+            $table->string('email')->unique()->default('');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('path')->nullable();
+            $table->string('path')->default('/image/ini.png');
             $table->rememberToken();
             $table->timestamps();
         });

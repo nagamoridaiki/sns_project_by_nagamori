@@ -61,7 +61,7 @@
                         <tr>
                             <th>
                                 <div class="iteration">
-                                    {{$loop->iteration}}
+                                    <img src="{{ $user->path }}" width="40" height="50">
                                 </div>  
                             </th>
                             <td>
