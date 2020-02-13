@@ -31,8 +31,17 @@
                 {{--   受信したメッセージ  左側--}}
                 @if($message->receive_user_id == $loginId && $message->send_user_id == $friend->id)
                     <div class="recieve" style="text-align: left">
-                        <p>{{$friendsall->find($message->send_user_id)->name}}</p>
-                        <p>{{$message->message_text}}</p>
+                        <div class="your_info">
+                            <div class="your_info_name">
+                                <p>{{$friendsall->find($message->send_user_id)->name}}</p>
+                            </div>
+                            <div class="your_info_photo">
+                                <img src="{{ $friend_path }}"  width="50" height="50" style="border-radius:20px">
+                            </div>
+                        </div>
+                        <div class="your_speek">
+                            <p>{{$message->message_text}}</p>
+                        </div>
                         <p>{{$message->created_at}}</p>
                     </div>
                 @endif
