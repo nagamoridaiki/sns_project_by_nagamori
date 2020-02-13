@@ -51,7 +51,7 @@
   float: left;
   width: 350px;
   margin-right: 50px;
-  background-color: aquamarine;
+  background-color: #dee2e6;
   height:500px;
   
 }
@@ -63,18 +63,24 @@
 .profiel-head {
   margin-top:20px;
   text-align: center;
-  background-color: #5dca88;
+  background-color: #fff;
   width:330px;
   margin:0 auto;
-  box-shadow: 4px 4px #1a7940;
+  box-shadow: 4px 4px #fff;
 
 }
 
 .profiel-table{
-  background-color: #5dca88;
-  box-shadow: 4px 4px #1a7940;
+  background-color: #fff;
+  box-shadow: 4px 4px #fff;
   width:330px;
   margin:0 auto;
+}
+
+.my_photo{
+  padding-left:10px;
+  border-radius: 5px;
+  margin: 15px 0px 10px 0px;
 }
 
 .profiel-edit {
@@ -104,16 +110,16 @@
 .friend_top{
   width:400px;
   height:500px;
-  background-color:aquamarine;
+  background-color:#dee2e6;
   float: left;
 }
 
 .friend-theme {
   margin-top:20px;
   text-align: center;
-  background-color: #5dca88;
+  background-color: #fff;
   margin:0 auto;
-  box-shadow: 4px 4px #1a7940;
+  box-shadow: 4px 4px #fff;
 
 }
 
@@ -122,8 +128,8 @@
 }
 
 .friend-serch{
-  background-color: #5dca88;
-  box-shadow: 4px 4px #1a7940;
+  background-color: #fff;
+  box-shadow: 4px 4px #fff;
   padding:10px 10px;
 }
 
@@ -153,8 +159,8 @@
   padding-top:20px;
   padding-left:10px;
   height:350px;
-  background-color: #5dca88;
-  box-shadow: 4px 4px #1a7940;
+  background-color: #fff;
+  box-shadow: 4px 4px #fff;
 }
 
 .friend-table-body a{
