@@ -46,4 +46,6 @@
 @endauth
 <a href="{{ url('/users/photocreate/'.Auth::id()) }}">画像アップロード</a>
 
+gitプルリクエスト練習
+
 @endsection
