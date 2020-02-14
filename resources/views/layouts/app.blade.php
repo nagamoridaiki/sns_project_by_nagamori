@@ -20,7 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="profiel.css" style="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+    
 </head>
 
 <body>
