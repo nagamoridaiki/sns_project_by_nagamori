@@ -30,9 +30,6 @@ Route::post('/users/update/{id}','UsersController@update');
 Route::get('/users/create/{id}','UsersController@create');
 Route::get('/users/destroy/{id}','UsersController@destroy');
 Route::get('/users/edit/image_input/{id}','ImageUploadRequest@getImageInput');
-Route::post('/users/edit/image_confirm/{id}', 'ImageUploadRequest@postImageConfirm');
-Route::post('/users/edit/image_complete/{id}', 'ImageUploadRequest@postImageComplete');
-Route::get('/users/photo/{id}' , 'UsersController@photo');
 Route::get('/users/photocreate/{id}', 'PhotosController@create');
 Route::post('/users/photocreate', 'PhotosController@store');
 

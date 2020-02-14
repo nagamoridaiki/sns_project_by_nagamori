@@ -40,31 +40,10 @@
     </table>
 </form>
 
-
-
-
 @auth
 <a href="{{ url('/users/index/'.Auth::id()) }}">プロフィール画面へ</a>
 <br>
 @endauth
-
-<a href="{{ url('/users/photo/'.Auth::id()) }}">画像確認</a>
-
 <a href="{{ url('/users/photocreate/'.Auth::id()) }}">画像アップロード</a>
-<div class="photo-edit">
-
-<form action="/users/edit/image_confirm/{{Auth::id()}}" method="post" enctype="multipart/form-data" id="form">
-    @csrf
-    ファイル：
-    <input type="file" name="imagefile" value=""/><br /><br />
-
-    <input type="submit" name="confirm" id="button" value="確認" />
-</form>
-
-
-</div>
-
-
-
 
 @endsection
