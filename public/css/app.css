@@ -49,12 +49,11 @@
 
 #profiel {
   
-  width: 350px;
+  width:400px;
   margin-right: 10px;
   background-color: #38c172;
-  height:500px;
-
-  
+  height:500px;  
+  float: left;
 }
 
 .profiel-line{
@@ -119,8 +118,10 @@
 
 .friend_top{
   width:400px;
+  margin-right: 10px;
   background-color:#9561e2;
-  
+  height:500px;
+  float: left;
 }
 
 .friend-theme {
