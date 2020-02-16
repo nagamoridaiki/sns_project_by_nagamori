@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use App\User;
 use App\Relationships;
 use App\Messages;
+use App\Article;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -16,14 +17,18 @@ class UsersController extends Controller
     public function index(Request $request){
 
         $id = Auth::user()->id;
+        $all_user = User::all();
         $user = User::find($id);
         $name = $user -> email;
-        $relationships = Relationships::all()->where('user_id',$id);
+        $relationships = Relationships::all()->where('user_id',$id);       
         $others = User::where('id','<>', $user->id)->get();
+
+        $sort = $request->sort;
+        $article = Article::orderBy( 'id' , 'desc' )->Paginate(7);
         $my_path = Auth::user()->path;
         
 
-        return view('users/index', compact('others' ,'my_path','relationships','id','name','user'));
+        return view('users/index', compact('all_user','article','others' ,'my_path','relationships','id','name','user'));
     }
 
     public function show(Request $request, $id)

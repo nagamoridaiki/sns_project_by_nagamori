@@ -53,4 +53,8 @@ class User extends Authenticatable
     public function friend_relationships(){
         return $this->hasMany('App\Relationship' , 'friend_id' , 'id');
     }
+
+    public function write_article(){
+        return $this->hasMany('App\Article');
+    }
 }

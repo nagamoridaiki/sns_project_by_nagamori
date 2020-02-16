@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<!--Myプロフィール画面-->
 <div id="profiel">
     <div class="profiel-line">
         <div class="profiel-head">
@@ -27,14 +27,14 @@
             @auth
             <br>
             <a href="{{ url('/users/edit/'.Auth::id()) }}">プロフィールを編集する</a>
-            <br>
+            
+            <a href="{{ url('article/index/'.Auth::id()) }}">投稿を書く</a>
             @endauth
         </div>
     </div>
 </div>
 
-
-
+<!--友達一覧画面-->
 <div class="friend_top">
     <div class="friend-main">
         <div class="friend-theme">
@@ -61,7 +61,9 @@
                         <tr>
                             <th>
                                 <div class="iteration">
-                                    <img src="{{ $user->path }}" width="40" height="50">
+                                    <a href="{{ url('/users/detail/'.$user->id)}}">
+                                        <img src="{{ $user->path }}" width="40" height="50">
+                                    </a>
                                 </div>  
                             </th>
                             <td>
@@ -98,6 +100,29 @@
         </div>
     </div>
 </div>
+
+<div class="article-top">
+    <div>
+        <h2>投稿一覧画面</h2>
+    <div>
+    <div class="article-list">
+        @foreach($article as $index => $one_article)
+            <div class=article-photo>
+            </div>
+            <div class="article-text">              
+                <p>
+        
+        {{ $one_article->user->name }}
+                {{ $one_article->message_text }}        
+                </p>
+            </div>
+        @endforeach
+    </div>
+    <div class="paginate">
+        {{ $article->links() }}
+    </div>
+</div>
+
 
 @endsection
 
