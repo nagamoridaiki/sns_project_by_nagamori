@@ -40,6 +40,11 @@ Route::get('/messages/index/{id}', 'MessagesController@index');
 Route::post('/messages/send/{id}', 'MessagesController@send');
 Auth::routes();
 
+Route::get('/article/index/{id}' , 'ArticleController@index');
+Route::post('/article/create/{id}' , 'ArticleController@create');
+Auth::routes();
+
+
 
 
 
