@@ -1,5 +1,87 @@
-@media(max-width:670px){
+* {
+	float: none;
+	position: static;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media all and (max-width:700px){
+
+
+
     .messages{
         width:100%;
+    }
+
+    .friend-name{
+        text-align: left;
+        margin-left: 100px;
+
+    }
+
+    .send{
+        margin-left:180px;
+    }
+
+    .my_info{
+        
+        
+    }
+
+    .my_info_name{
+        clear:float;
+        clear:text-align;
+        margin-left:60px;
+        margin-top:30px;
+    }
+
+    .my_info_photo{}
+
+    .my_speek{
+        margin-left: 50px;
+        width:250px;
+    }
+
+    .receive{
+        
+    }
+
+    .your_info{
+        
+    }
+
+    .your_info_name{
+        background-color: ;
+        margin-left:20px;
+        margin-top:10px;
+    }
+
+    .your_info_photo{
+        margin-left: 200px;
+    }
+
+    .your_speek{
+        
+        width:250px;
+    }
+
+    form{
+        
+    }
+
+    .message-box{
+        width:500px;
+        background-color: ;
+        margin-left: -100px;
+        
+    }
+
+    .messages{
+        background-color: ;
+        width:500px;
+        margin-left: -100px;
     }
 }

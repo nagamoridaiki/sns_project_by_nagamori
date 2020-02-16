@@ -32,7 +32,7 @@ Route::get('/users/destroy/{id}','UsersController@destroy');
 Route::get('/users/edit/image_input/{id}','ImageUploadRequest@getImageInput');
 Route::get('/users/photocreate/{id}', 'PhotosController@create');
 Route::post('/users/photocreate', 'PhotosController@store');
-
+Route::get('/users/detail/{id}' , 'UsersController@visit');
 Auth::routes();
 
 
