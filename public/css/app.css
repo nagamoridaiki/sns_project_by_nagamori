@@ -48,11 +48,12 @@
 */
 
 #profiel {
-  float: left;
+  
   width: 350px;
-  margin-right: 50px;
-  background-color: #dee2e6;
+  margin-right: 10px;
+  background-color: #38c172;
   height:500px;
+
   
 }
 
@@ -106,12 +107,20 @@
   position: relative;
 }
 
+.article-top{
+  
+  width:400px;
+  height:500px;
+  float: left;
+  margin-right: 10px;
+  background-color: aquamarine;
+}
+
 
 .friend_top{
-  width:600px;
-  height:500px;
-  background-color:#dee2e6;
-  float: left;
+  width:400px;
+  background-color:#9561e2;
+  
 }
 
 .friend-theme {
