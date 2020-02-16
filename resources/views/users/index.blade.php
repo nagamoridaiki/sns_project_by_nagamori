@@ -66,7 +66,7 @@
                             </th>
                             <td>
                                 <div class="itr-name">
-                                    {{$user->name}}
+                                    <a href="{{ url('/users/detail/'.$user->id)}}">{{$user->name}}</a>
                                 </div>
                             </td>
                             <td>

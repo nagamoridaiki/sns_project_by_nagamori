@@ -78,8 +78,6 @@ class UsersController extends Controller
     }
 
 
-
-
     public function destroy(Request $request , $id)
     {
         $user_id = Auth::User()->id;
@@ -88,14 +86,16 @@ class UsersController extends Controller
         return redirect('users/index/'.Auth::id());
     }
 
-    public function photo(Request $request , $id)
+
+    public function visit(Request $request , $id)
     {
-        //$img = file_get_contents("storage/app/public/cat.jpg");
+        $id = $id;
+        $user = User::find($id);
 
-        
-    return view('users/photo' /*, 'img'->$img*/);
-
+        return view('users/detail' , compact('user' ,'id'));
     }
+
+    
 
 
 }
