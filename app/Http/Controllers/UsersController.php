@@ -24,7 +24,7 @@ class UsersController extends Controller
         $others = User::where('id','<>', $user->id)->get();
 
         $sort = $request->sort;
-        $article = Article::orderBy( 'id' , 'desc' )->Paginate(7);
+        $article = Article::orderBy( 'id' , 'desc' )->Paginate(4);
         $my_path = Auth::user()->path;
         
 
@@ -98,6 +98,16 @@ class UsersController extends Controller
         $user = User::find($id);
 
         return view('users/detail' , compact('user' ,'id'));
+    }
+
+    public function myprof(Request $request){
+        $id = Auth::user()->id;
+        $all_user = User::all();
+        $user = User::find($id);
+        $name = $user -> email;
+        $my_path = Auth::user()->path;
+        
+        return view('users/myprof', compact('all_user' ,'my_path','id','name','user'));
     }
 
     

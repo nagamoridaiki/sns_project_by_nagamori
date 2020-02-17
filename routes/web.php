@@ -33,6 +33,7 @@ Route::get('/users/edit/image_input/{id}','ImageUploadRequest@getImageInput');
 Route::get('/users/photocreate/{id}', 'PhotosController@create');
 Route::post('/users/photocreate', 'PhotosController@store');
 Route::get('/users/detail/{id}' , 'UsersController@visit');
+Route::get('/users/myprof/{id}','UsersController@myprof');
 Auth::routes();
 
 

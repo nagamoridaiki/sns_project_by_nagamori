@@ -49,15 +49,18 @@
 
 #profiel {
   
-  width:400px;
+  width:420px;
   margin-right: 10px;
-  background-color: #38c172;
-  height:500px;  
-  float: left;
+  margin-left: 10px;
+  height:2000px;  
+  float: left;  
 }
 
 .profiel-line{
-  padding-top:10px 
+  padding-top:10px;
+  margin-bottom: 10px;
+  border : solid 1px #333 ;
+  height:210px;
 }
 
 .profiel-head {
@@ -66,13 +69,11 @@
   background-color: #fff;
   width:330px;
   margin:0 auto;
-  box-shadow: 4px 4px #fff;
 
 }
 
 .profiel-table{
   background-color: #fff;
-  box-shadow: 4px 4px #fff;
   width:330px;
   margin:0 auto;
 }
@@ -81,6 +82,49 @@
   padding-left:10px;
   border-radius: 5px;
   margin: 15px 0px 10px 0px;
+  float: left;
+}
+
+.my_photo img{
+  margin-right:10px;
+}
+
+.my_photo p{
+  margin-top:20px;
+
+}
+
+
+ul {
+  list-style: none;
+}
+
+li {
+  float: left;
+}
+
+.my_photo img {
+  float: left;
+  border-radius: 100px;
+}
+
+.my_photo p {
+  float: right;
+  
+}
+
+.my_photo a{
+  background-color: #5dca88;
+color: white;
+padding:5px 5px;
+border-radius:5px;
+box-shadow: 0 4px #1a7940;
+}
+
+
+.my_name{
+  width:150px;
+  
 }
 
 .profiel-edit {
@@ -107,21 +151,68 @@
 }
 
 .article-top{
-  
   width:400px;
-  height:500px;
+  height:1500px;
   float: left;
   margin-right: 10px;
-  background-color: aquamarine;
+  border : solid 1px #333 ;
+}
+
+.post-top{
+  height:40px;
+  
+}
+
+.post-top .input_text{
+  width:270px;
+}
+
+
+.article-top h3{
+  text-align: center;
+  padding:8px 8px 8px 8px ;
+  
+}
+
+
+.article-photo{
+  float:left;
+  
+}
+
+.article-text{
+  height:50px;
+
+}
+
+.article-text .created-at{
+  float:right;
+  padding-right:50px;
+}
+
+
+.one-article{
+  
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height:85px;
+  border : solid 1px #333 ;
+  padding:8px 8px 8px 8px ;
+  background-color: #5dca88;
+}
+
+.one-article img {
+  border-radius: 30px;
+  margin-right:20px;
 }
 
 
 .friend_top{
-  width:400px;
+  width:420px;
   margin-right: 10px;
-  background-color:#9561e2;
   height:500px;
   float: left;
+  border : solid 1px #333 ;
 }
 
 .friend-theme {
@@ -129,7 +220,6 @@
   text-align: center;
   background-color: #fff;
   margin:0 auto;
-  box-shadow: 4px 4px #fff;
 
 }
 
@@ -139,7 +229,6 @@
 
 .friend-serch{
   background-color: #fff;
-  box-shadow: 4px 4px #fff;
   padding:10px 10px;
 }
 
@@ -180,6 +269,13 @@
 .iteration{
   margin-right:20px;
 }
+
+.iteration img{
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+
 
 .itr-name{
   margin-right:20px;
@@ -268,7 +364,28 @@
 
 /*
 ここまでがmessage画面
+
+
+ここからマイプロフィール画面
 */
+
+
+.my_prof_photo{
+  margin-bottom: 50px;
+  height:100px;
+
+}
+
+.my_prof_list{
+
+
+}
+
+
+/*
+ここまでがマイプロフィール画面
+*/
+
 
 
 html {
