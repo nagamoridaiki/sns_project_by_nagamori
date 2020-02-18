@@ -35,7 +35,7 @@ class PhotosController extends Controller
         $users->save();
 
 
-        return View('photos.complete')->with('path',$photo_path );
+        return redirect('users/edit/'.Auth::id());
     }
 
 

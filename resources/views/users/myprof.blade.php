@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<p><a href="{{ url('/users/index/'.Auth::id()) }}">メイン画面</a>
 
     <table>
         <ul class="my_prof_photo">
@@ -30,7 +31,6 @@
             <a href="{{ url('article/index/'.Auth::id()) }}">投稿を書く</a>
             @endauth
     </div>
-    <p><a href="{{ url('/users/index/'.Auth::id()) }}">メイン画面</a>
 
 
 @endsection

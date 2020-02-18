@@ -50,8 +50,10 @@ class UsersController extends Controller
     public function edit(Request $request){
         $id = Auth::user()->id;
         $user = Auth::user();
+        $my_path = Auth::user()->path;
 
-        return view('users/edit',['form' => $user ,'id' => $id]);
+
+        return view('users/edit',compact('my_path', 'user','id'));
     }
 
     public function update(Request $request)

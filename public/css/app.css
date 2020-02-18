@@ -128,8 +128,6 @@ box-shadow: 0 4px #1a7940;
 }
 
 .profiel-edit {
-  text-align: center;
-
 }
 
 .profiel-edit a{
@@ -281,10 +279,6 @@ box-shadow: 0 4px #1a7940;
   margin-right:20px;
 }
 
-
-.photo-edit{
-  float: right;
-}
 /*ここまでがIndex*/
 
 /*ここからがmessage画面*/
@@ -384,7 +378,69 @@ box-shadow: 0 4px #1a7940;
 
 /*
 ここまでがマイプロフィール画面
+
+ここからが編集画面
 */
+
+.edit-table{
+  width:300px;
+  margin-bottom:20px;
+}
+
+.photo-edit{
+  float: left;
+  width:600px;
+  height:130px;
+}
+
+
+.photo-edit .submit{
+  background-color: #5dca88;
+  color: white;
+  padding:10px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px #1a7940;
+}
+
+.photo-edit .submit:hover{
+  background-color: #5dca88;
+  color: white;
+  box-shadow: none;
+  padding:10px 10px;
+  border-radius: 5px;
+  top: 7px;
+  position: relative;
+}
+
+.photo-edit form{
+  width:330px;
+  float: left;
+}
+
+.photo-edit img{
+  float: left;
+  margin-right: 10px;
+}
+
+.edit-button{
+  background-color: #5dca88;
+  color: white;
+  padding:10px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px #1a7940;
+  width:170px;
+}
+
+.edit-button:hover{
+  background-color: #5dca88;
+  color: white;
+  box-shadow: none;
+  padding:10px 10px;
+  border-radius: 5px;
+  top: 7px;
+  position: relative;
+  width:170px;
+}
 
 
 
