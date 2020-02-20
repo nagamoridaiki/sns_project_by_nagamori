@@ -113,6 +113,7 @@
                         コメント {{ $one_article->comments->count() }}件
                     </span>
                 @endif
+                <span><a href="{{ url('article/show/'.$one_article->id) }}">詳細/コメントを書く</a></span>
             </div>
         </div>
         @endforeach

@@ -42,7 +42,9 @@ Route::post('/messages/send/{id}', 'MessagesController@send');
 Auth::routes();
 
 Route::get('/article/index/{id}' , 'ArticleController@index');
+Route::get('/article/show/{id}' , 'ArticleController@show');
 Route::post('/article/create/{id}' , 'ArticleController@create');
+Route::post('/comments/create/{id}' , 'CommentsController@create');
 Auth::routes();
 
 

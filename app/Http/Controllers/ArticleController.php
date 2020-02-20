@@ -24,6 +24,9 @@ class ArticleController extends Controller
 
     public function show(Request $request, $id)
     {
+        $article = Article::findOrFail($id);
+        
+        return view('article_detail' , compact('article'));
     }
 
     public function edit(Request $request){
