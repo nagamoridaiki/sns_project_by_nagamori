@@ -79,7 +79,7 @@
                                 @if($flag == 0)
                                     <td><a href="{{ url('/users/create/'.$user->id) }}"><button type="button" class="btn btn-primary">フォロー</button></a></td>
                                 @else
-                                    <td><a href="{{ url('/users/destroy/'.$user->id) }}"><button type="button" class="btn btn-primary">フォロー中</button></a></td>
+                                    <td><a href="{{ url('/users/destroy/'.$user->id) }}"><button type="button" class="btn btn-primary-followon" >フォロー中</button></a></td>
                                 @endif
                             </tr>
                         @endforeach
@@ -123,7 +123,7 @@
                 <input type="hidden" name="id" value="{{Auth::id()}}">
                 <tr><th>投稿する　</th>
                 <td><textarea class="input_text" type="text" name="message_text" value=""></textarea></td>
-                <td><input type="submit" value="send"></td>
+                <td><input type="submit" value="送信"></td>
             </table>
         </form>
     </div>

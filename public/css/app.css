@@ -3307,6 +3307,17 @@ fieldset:disabled a.btn {
   border-color: #2176bd;
 }
 
+.btn-primary-followon {
+  color: #212529;
+  border-color: #123c24;
+}
+
+.btn-primary-followon:hover {
+  color: #fff;
+  background-color: #227dc7;
+  border-color: #2176bd;
+}
+
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
