@@ -108,6 +108,11 @@
                 {{ $one_article->user->name}}
                 <span class="created-at">{{ $one_article->created_at }}</span>
                 <p>{{ $one_article->message_text }}</p>
+                @if ($one_article->comments->count())
+                    <span class="badge badge-primary">
+                        コメント {{ $one_article->comments->count() }}件
+                    </span>
+                @endif
             </div>
         </div>
         @endforeach
