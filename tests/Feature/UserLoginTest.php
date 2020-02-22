@@ -10,6 +10,10 @@ use Illuminate\Foundation\Testing\WithFaker;
 
 use Tests\TestCase;
 use App\User;
+use App\Messages;
+use App\Relationships;
+use App\Article;
+use App\Comment;
 
 class UserLoginTest extends TestCase
 {
@@ -33,6 +37,24 @@ class UserLoginTest extends TestCase
 
         $response = $this->get('/users/index/1');
         $response->assertStatus(200);
+
+        $response = $this->get('/users/myprof/1');
+        $response->assertStatus(200);
+
+        $response = $this->get('/users/edit/1');
+        $response->assertStatus(200);
+
+        //id１が、自分自身とメッセージやりとりできてしまう。。
+        $response = $this->get('/messages/index/1');
+        $response->assertStatus(200);
+        //上に同じく
+        $response = $this->get('/users/detail/1');
+        $response->assertStatus(200);
+
+        $article = factory(Article::class)->create();
+        $response = $this->get('/article/show/1');
+        $response->assertStatus(200);
+
 
     }
 }
