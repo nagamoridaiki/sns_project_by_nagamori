@@ -4,36 +4,31 @@
 
 
 <h1>編集画面</h1>
-
-
-@if (count($errors) > 0)
-<div>
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-
 <div class="edit-table">
     <div class="photo-edit">
         <img src="{{ $my_path }}"  width="100" height="100">
         <form action="{{ url('/users/photocreate') }}" method="post" enctype="multipart/form-data" id="form">
         @csrf
         <p>{!! Form::file('fileName') !!}</p>
-        <input class="submit" type="submit" value="アップロードする">
+        <input class="submit" type="submit" value="画像を更新する">
         {!! Form::close() !!}
         </form>
     </div>
     <div class="edit_table">
+    @if (count($errors) > 0)
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <form method="post" action="/users/update/{{Auth::id()}}">
         <table>
         {{ csrf_field() }}
+            <p class="error_msg">{{$msg ?? '' }}</p>
             <input type="hidden" name="id" value="{{Auth::id()}}">
-
-            
             <tr><th>Name:</th><td>
             <input type="text" name="name" value="{{$user->name ?? '' }}"></td></tr>
 
