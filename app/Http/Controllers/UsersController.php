@@ -133,9 +133,8 @@ class UsersController extends Controller
         $my_path = Auth::user()->path;
         $msg="";
 
-        if ($request->session()->exists('msg')) {
-            $msg = $request->session()->get('msg');
-        }
+        // 指定したデータをセッションから削除する
+        $request->session()->forget('msg');
         
         return view('users/myprof', compact('all_user' ,'my_path','id','name','user','msg'));
     }
