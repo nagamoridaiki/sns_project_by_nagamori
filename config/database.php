@@ -90,6 +90,19 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+        //ユニットテスト用
+        'testing' => [
+            'driver' => 'testing',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '1234'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'nagamori'),
+            'password' => env('DB_PASSWORD', '0000'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ]
 
     ],
 

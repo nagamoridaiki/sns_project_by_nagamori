@@ -44,10 +44,9 @@ class UserLoginTest extends TestCase
         $response = $this->get('/users/edit/1');
         $response->assertStatus(200);
 
-        //id１が、自分自身とメッセージやりとりできてしまう。。
         $response = $this->get('/messages/index/1');
         $response->assertStatus(200);
-        //上に同じく
+
         $response = $this->get('/users/detail/1');
         $response->assertStatus(200);
 
