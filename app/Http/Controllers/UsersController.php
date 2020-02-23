@@ -51,20 +51,44 @@ class UsersController extends Controller
         $id = Auth::user()->id;
         $user = Auth::user();
         $my_path = Auth::user()->path;
+        $msg = "";
+
+        if ($request->session()->exists('msg')) {
+            // 存在する
+            $msg = $request->session()->get('msg');
+        }
 
 
-        return view('users/edit',compact('my_path', 'user','id'));
+        return view('users/edit',compact('my_path', 'user','id','msg'));
     }
 
     public function update(Request $request)
     {
+        $validate_rule = [
+            'name' => 'max:20',
+        ];
+
         $id = Auth::user()->id;
         $user = Auth::user();
         $form = $request->all();
         unset($form['_token']);
-        $user->fill($form)->save();
+        $my_path = Auth::user()->path;
 
-        return redirect('users/index/'.Auth::id());
+
+        if($request->name==""){
+            $msg = "名前は必須です。";
+        }elseif($request->email==""){
+            $msg = "メールアドレスは必須です";
+        }else{
+            $user->fill($form)->save();
+            $msg = "正しく入力されました";
+            $request->session()->put('msg', $msg);
+    
+            return redirect('users/edit/'.Auth::id());
+        }
+    
+        $this->validate($request, $validate_rule);
+        return view('users/edit',compact('my_path', 'user','id','msg'));
     }
 
     //友達申請 relationshipモデル作成
@@ -77,7 +101,6 @@ class UsersController extends Controller
         $relationship->save();
 
         return redirect('users/index/'.Auth::id());
-                
     }
 
     public function store(Request $request)
@@ -108,8 +131,13 @@ class UsersController extends Controller
         $user = User::find($id);
         $name = $user -> email;
         $my_path = Auth::user()->path;
+        $msg="";
+
+        if ($request->session()->exists('msg')) {
+            $msg = $request->session()->get('msg');
+        }
         
-        return view('users/myprof', compact('all_user' ,'my_path','id','name','user'));
+        return view('users/myprof', compact('all_user' ,'my_path','id','name','user','msg'));
     }
 
     
