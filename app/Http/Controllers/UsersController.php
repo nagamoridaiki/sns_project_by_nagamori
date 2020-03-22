@@ -26,6 +26,8 @@ class UsersController extends Controller
         $sort = $request->sort;
         $article = Article::orderBy( 'id' , 'desc' )->Paginate(4);
         $my_path = Auth::user()->path;
+        $msg = "";
+
         if ($request->session()->exists('msg')) {
             // 存在する
             $msg = $request->session()->get('msg');
@@ -112,6 +114,11 @@ class UsersController extends Controller
         $friend_id = $id;
         $relationship->fill(['user_id'=>$user_id , 'friend_id'=>$friend_id ]);
         $relationship->save();
+        $msg="";
+
+        // 指定したデータをセッションから削除する
+        $request->session()->forget('msg');
+
 
         return redirect('users/index/'.Auth::id());
     }
@@ -123,6 +130,7 @@ class UsersController extends Controller
 
     public function destroy(Request $request , $id)
     {
+
         $user_id = Auth::User()->id;
         $friend_id = $id;
         Relationships::where('user_id',$user_id)->where('friend_id',$friend_id)->delete();
