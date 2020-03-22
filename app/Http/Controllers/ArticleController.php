@@ -43,8 +43,24 @@ class ArticleController extends Controller
     {
         $my = Auth::user();
         
+        /*
         if(Article::where('user_id','==',$my->id)){
             $my_write = Article::where('user_id','==',$my->id)->get();
+        }*/
+
+        $validate_rule = [
+            'message_text' => 'max:20',
+        ];
+
+        $text = $request->message_text;
+
+        if(strlen($text)>60){
+            $msg = "投稿が長すぎます";
+            $request->session()->put('msg', $msg);
+            return redirect( 'users/index/'.Auth::id() );
+        }else{
+            $msg = "投稿しました";
+            $request->session()->put('msg', $msg);
         }
 
         $article = new Article;

@@ -70,7 +70,9 @@
             </table>
         </form>
     </div>
+    <p class="error_msg">{{$msg ?? '' }}</p>
 </div>
+
 
 
 <!--友達一覧画面-->

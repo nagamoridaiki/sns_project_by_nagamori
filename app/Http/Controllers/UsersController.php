@@ -26,9 +26,13 @@ class UsersController extends Controller
         $sort = $request->sort;
         $article = Article::orderBy( 'id' , 'desc' )->Paginate(4);
         $my_path = Auth::user()->path;
+        if ($request->session()->exists('msg')) {
+            // 存在する
+            $msg = $request->session()->get('msg');
+        }
         
 
-        return view('users/index', compact('all_user','article','others' ,'my_path','relationships','id','name','user'));
+        return view('users/index', compact('all_user','article','others' ,'my_path','relationships','id','name','user','msg'));
     }
 
     public function show(Request $request, $id)
@@ -79,11 +83,14 @@ class UsersController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $my_path = Auth::user()->path;
+        $name = $request->name;
 
 
-        if($request->name==""){
+        if($name==""){
             $msg = "名前は必須です。";
-        }elseif($request->email==""){
+        }else if( strlen($name) > 20){
+            $msg = "名前は20文字以下にしてください";
+        }else if($request->email==""){
             $msg = "メールアドレスは必須です";
         }else{
             $user->fill($form)->save();
