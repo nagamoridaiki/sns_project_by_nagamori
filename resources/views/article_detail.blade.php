@@ -70,7 +70,8 @@
                             {!! nl2br(e($comment->body)) !!}
                         </p>
                         <!-- ここにコメントの削除機能をつける-->
-
+                        <td><a href="{{ url('comments/destroy/'.$comment->id) }}"><button type="button" class="btn btn-primary">コメント削除</button></a></td>
+                    
                     </div>
                 @empty
                     <p>コメントはまだありません。</p>

@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Comment;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class CommentsController extends Controller
 {
@@ -24,5 +28,14 @@ class CommentsController extends Controller
         $request->session()->forget('msg');
 
         return redirect('users/index/'.$article->id );
+    }
+
+    public function destroy(Request $request , $id)
+    {
+        $user = Auth::user();
+        $comment_id = $id;
+        $comment = Comment::where('id',$comment_id);
+        $comment->delete();
+        return redirect('users/index/'.$user->id );
     }
 }
