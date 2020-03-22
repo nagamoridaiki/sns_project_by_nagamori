@@ -21,12 +21,14 @@ class ArticleController extends Controller
 
     public function show(Request $request, $id)
     {
+        $login_user_id = Auth::user()->id;
+
         $article = Article::findOrFail($id);
         $msg="";
         // 指定したデータをセッションから削除する
         $request->session()->forget('msg');
         
-        return view('article_detail' , compact('article','msg'));
+        return view('article_detail' , compact('article','msg','login_user_id'));
     }
 
     public function edit(Request $request){
@@ -73,7 +75,9 @@ class ArticleController extends Controller
 
     public function destroy(Request $request , $id)
     {
-
+        $article_id = $request->article_id;
+        Article::where('id',$article_id)->delete();
+        return redirect('users/index/'.Auth::id());
     }
 
 

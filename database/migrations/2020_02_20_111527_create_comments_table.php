@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->text('body');
             $table->timestamps();
             //外部キーの設定
-            $table->foreign('article_id')->references('id')->on('articles');
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
         });
     }
 

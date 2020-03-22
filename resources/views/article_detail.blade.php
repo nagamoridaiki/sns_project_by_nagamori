@@ -6,16 +6,28 @@
 
 <div class="container mt-4">
         <div class="border p-4">
-        
-
-            <p class="card-text">
+            <h2 class="card-text">
                 {!! nl2br(e($article->message_text, 200)) !!}
-            </p>
+            </h2>
+<!--　自分の投稿だけ削除できるif判定　-->
+            @if($login_user_id == $article->user_id)
+            <form　method="POST" action="/article/destroy/{{$article->id}}">
+                @csrf
+                <input type="hidden" value="{{ $article->id }}" name="article_id">
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        この投稿を削除する
+                </button>
+            </form>
+            @endif
+            
 
             <section>
-                <h2 class="h5 mb-4">
+            <br>
+            <br>
+                <h3 class="h5 mb-4">
                     コメント
-                </h2>
+                </h3>
                 <form class="mb-4" method="POST" action="/comments/create/{{$article->id}}" >
                     @csrf
                     <input
@@ -57,6 +69,8 @@
                         <p class="mt-2">
                             {!! nl2br(e($comment->body)) !!}
                         </p>
+                        <!-- ここにコメントの削除機能をつける-->
+
                     </div>
                 @empty
                     <p>コメントはまだありません。</p>
