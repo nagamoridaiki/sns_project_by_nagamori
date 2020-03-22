@@ -12,7 +12,7 @@
             <table>
             <ul class="my_photo">
                 <li>
-                    <img src="{{ $my_path }}"  width="100" height="100">
+                    <img src="{{ $my_path ?? '' }}"  width="100" height="100">
                 </li>
                 <li>
                     <h4>{{ $user -> name ?? '' }}</h4>

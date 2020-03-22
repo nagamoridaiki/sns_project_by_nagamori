@@ -15,7 +15,7 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->Integer('article_id')->unsigned();
+            $table->bigInteger('article_id')->unsigned();
             $table->text('body');
             $table->timestamps();
             //外部キーの設定
@@ -27,7 +27,7 @@ class CreateCommentsTable extends Migration
      * Reverse the migrations.
      *
      * @return void
-     */
+     */ 
     public function down()
     {
         Schema::dropIfExists('comments');

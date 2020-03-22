@@ -34,16 +34,22 @@ class UsersController extends Controller
     public function show(Request $request, $id)
     {
         $id = Auth::user()->id;
+        $all_user = User::all();
         $user = User::find($id);
         $name = $user -> email;
         $relationships = Relationships::all()->where('user_id',$id);
         $others = User::where('id','<>', $user->id)->where('name',$request->name)->get();
 
+        $sort = $request->sort;
+        $article = Article::orderBy( 'id' , 'desc' )->Paginate(4);
+        $my_path = Auth::user()->path;
+
+
         if($request->name == ""){
             $others = User::where('id','<>', $user->id)->get();
         }
 
-        return view('users/index', [ 'user' => $user , 'name' => $name , 'id'=>$id , 'relationships'=>$relationships ], compact('others'));
+        return view('users/index', compact('all_user','article','others' ,'my_path','relationships','id','name','user'));
         
     }
 
