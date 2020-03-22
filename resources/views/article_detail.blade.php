@@ -64,5 +64,7 @@
             </section>
         </div>
     </div>
+    <p><a href="{{ url('/users/index/'.Auth::id()) }}">メイン画面に戻る</a>
+
 
 @endsection

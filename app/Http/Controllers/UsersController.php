@@ -143,7 +143,12 @@ class UsersController extends Controller
         $id = $id;
         $user = User::find($id);
 
-        return view('users/detail' , compact('user' ,'id'));
+        $msg="";
+
+        // 指定したデータをセッションから削除する
+        $request->session()->forget('msg');
+
+        return view('users/detail' , compact('user' ,'id' ,'msg'));
     }
 
     public function myprof(Request $request){

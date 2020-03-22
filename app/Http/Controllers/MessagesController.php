@@ -35,8 +35,13 @@ class MessagesController extends Controller
             $query->where('receive_user_id' , $loginId);
         });
         $messages = $query->get();
+
+        $msg="";
+
+        // 指定したデータをセッションから削除する
+        $request->session()->forget('msg');
         
-        return view('message',compact('my_path' , 'friend_path' , 'param' , 'messages' ,'friend' ,'friendsall','loginId', 'messageall'));
+        return view('message',compact('my_path' , 'friend_path' , 'param' , 'messages' ,'friend' ,'friendsall','loginId', 'messageall' , 'msg'));
         
     }
     

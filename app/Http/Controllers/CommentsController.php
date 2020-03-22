@@ -18,7 +18,11 @@ class CommentsController extends Controller
 
         $article = Article::findOrFail($article_id);
         $article->comments()->create($params);
+        $msg="";
 
-        return redirect('/article/show/'.$article->id );
+        // 指定したデータをセッションから削除する
+        $request->session()->forget('msg');
+
+        return redirect('users/index/'.$article->id );
     }
 }

@@ -16,37 +16,30 @@ class ArticleController extends Controller
     public function index(Request $request){
 
         $user = Auth::user();
-
-        
-
         return view('article', compact('user'));
     }
 
     public function show(Request $request, $id)
     {
         $article = Article::findOrFail($id);
+        $msg="";
+        // 指定したデータをセッションから削除する
+        $request->session()->forget('msg');
         
-        return view('article_detail' , compact('article'));
+        return view('article_detail' , compact('article','msg'));
     }
 
     public function edit(Request $request){
-
     }
 
     public function update(Request $request)
     {
-
     }
 
 
     public function create(Request $request , $id)
     {
         $my = Auth::user();
-        
-        /*
-        if(Article::where('user_id','==',$my->id)){
-            $my_write = Article::where('user_id','==',$my->id)->get();
-        }*/
 
         $validate_rule = [
             'message_text' => 'max:20',
