@@ -5,15 +5,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', 'HelloController@index');
-Route::get('hello/other','HelloController@other');
-
+//Route::get('hello', 'HelloController@index');
+//Route::get('hello/other','HelloController@other');
 
 
 Route::get('controller', 'HelloController@index');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//HomeController@indexをスキップした
+Route::get('/home', 'UsersController@index');
 
 Route::get('/res','ResponseController@index');
 
