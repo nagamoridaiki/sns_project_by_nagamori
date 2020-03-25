@@ -22,11 +22,11 @@ class TwitterController extends Controller
         // アクセストークンを使用しているユーザーのタイムラインを10件取得する
         $request = $connection->get('statuses/user_timeline',
         array(
-        'count'=>'1',
+        'count'=>'2',
         ));
 
 
-        return view('twitterapi', ['request' => $request]);
+        return view('twitter', ['request' => $request]);
         
     }
 }

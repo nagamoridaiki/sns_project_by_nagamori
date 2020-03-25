@@ -13,13 +13,18 @@
 
 <body>
     <main class="py-4">
+    @foreach ($request as $tweet)
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                {{print_r($request[0])}}
+                {{print_r($tweet->created_at)}}<br>
+                {{print_r($tweet->user->name)}}<br>
+                {{print_r($tweet->text)}}<br><br>
+                
                 </div>
             </div>
         </div>
+    @endforeach
     </main>
 </body>
 
