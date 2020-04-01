@@ -12,6 +12,10 @@ Route::get('/vueuser', function () {
     return App\User::all();
 });
 
+Route::get('/hello/json', 'VuetestController@json');
+Route::get('/hello/json/{id}', 'VuetestController@json');
+
+
 //APIテスト用
 Route::get('/apitest','PostController@index');
 Route::get('/create', function () {
