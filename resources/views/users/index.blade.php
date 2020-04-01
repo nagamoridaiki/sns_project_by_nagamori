@@ -11,10 +11,10 @@
         <div class="profiel-table">        
             <table>
             <ul class="my_photo">
-                <li>
+                <li class="my_info">
                     <img src="{{ $my_path ?? '' }}"  width="100" height="100">
                 </li>
-                <li>
+                <li class="my_info">
                     <h4>{{ $user -> name ?? '' }}</h4>
                     <p><a href="{{ url('/users/myprof/'.Auth::id()) }}">プロフィールを表示</a></a>
                 </li>

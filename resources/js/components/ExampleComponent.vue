@@ -5,9 +5,9 @@
                 <div class="card">
                     <div class="card-header">Example Component</div>
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
+                    <ul>
+                        <li v-for="user in users">{{ user.name }}</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -16,8 +16,13 @@
 
 <script>
     export default {
+        data(){
+            return {
+                users: []
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+          axios.get('/vueuser').then(response => this.users = response.data)
         }
     }
 </script>

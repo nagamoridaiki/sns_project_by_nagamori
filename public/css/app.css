@@ -99,7 +99,7 @@ ul {
   list-style: none;
 }
 
-li {
+.my_info {
   float: left;
 }
 
@@ -365,8 +365,6 @@ box-shadow: 0 4px #1a7940;
 
 /*
 ここまでがmessage画面
-
-
 ここからマイプロフィール画面
 */
 
@@ -385,7 +383,6 @@ box-shadow: 0 4px #1a7940;
 
 /*
 ここまでがマイプロフィール画面
-
 ここからが編集画面
 */
 
@@ -451,7 +448,6 @@ box-shadow: 0 4px #1a7940;
   position: relative;
   width:170px;
 }
-
 
 
 html {
@@ -3256,7 +3252,6 @@ textarea.form-control.is-invalid {
 }
 
 .btn {
-  margin-right: 10px;
   display: inline-block;
   font-weight: 400;
   color: #212529;
@@ -3307,22 +3302,11 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #1a7940;
-  border-color: #123c24;
+  background-color: #3490dc;
+  border-color: #3490dc;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
-}
-
-.btn-primary-followon {
-  color: #212529;
-  border-color: #123c24;
-}
-
-.btn-primary-followon:hover {
   color: #fff;
   background-color: #227dc7;
   border-color: #2176bd;
@@ -7121,7 +7105,7 @@ a.close.disabled {
 @media (min-width: 992px) {
   .modal-lg,
   .modal-xl {
-    max-width: 500px;
+    max-width: 800px;
   }
 }
 

@@ -5,6 +5,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/vue', function () {
+    return view('vuetest');
+});
+Route::get('/vueuser', function () {
+    return App\User::all();
+});
+
 //APIテスト用
 Route::get('/apitest','PostController@index');
 Route::get('/create', function () {
