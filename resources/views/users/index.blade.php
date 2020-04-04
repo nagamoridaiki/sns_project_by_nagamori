@@ -2,28 +2,11 @@
 
 @section('content')
 
-<!--Myプロフィール画面-->
-<div id="profiel">
-    <div class="profiel-line">
-        <div class="profiel-head">
-            <h3 class="fas fa-address-book">プロフィール画面</h3>
-        </div>
-        <div class="profiel-table">        
-            <table>
-            <ul class="my_photo">
-                <li class="my_info">
-                    <img src="{{ $my_path ?? '' }}"  width="100" height="100">
-                </li>
-                <li class="my_info">
-                    <h4>{{ $user -> name ?? '' }}</h4>
-                    <p><a href="{{ url('/users/myprof/'.Auth::id()) }}">プロフィールを表示</a></a>
-                </li>
-            </ul>
-            </table>
-        </div>
-
-    </div>
-        <!--友達一覧画面-->
+<div id="app">
+    <!--マイプロフィール画面-->
+    <profiel-component></profiel-component>
+    <!--画面遷移テスト用　簡単メモ帳画面-->
+    <top-component></top-component>
 </div>
 
 
@@ -141,10 +124,9 @@
     </div>
 </div>
 
+
 <!-- Styles -->
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
-
 
 @endsection
 

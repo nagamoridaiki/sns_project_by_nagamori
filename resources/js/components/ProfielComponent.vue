@@ -1,0 +1,134 @@
+<template>
+    <div class="container">
+        <!--{{user}}-->
+        <div id="profiel">
+            <!--Myプロフィール画面-->
+            <div id="profiel">
+                <div class="profiel-line">
+                    <div class="profiel-head">
+                        <h3 class="fas fa-address-book">プロフィール画面</h3>
+                    </div>
+                    <div class="profiel-table">        
+                        <table>
+                        <ul class="my_photo">
+                            <li class="my_info">
+                                <img v-bind:src="user.path" />
+                            </li>
+                            <li class="my_info">
+                                <h4>{{ user.name }}</h4>
+                                <RouterLink :to="`/users/myprof/${user.id}`">詳細画面へ</RouterLink>
+                            </li>
+                        </ul>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    
+export default {
+    mounted(){
+        axios.get('/user')
+            .then(response =>{
+                this.user = response.data;
+            })
+    },
+    data:function(){
+        return {
+            msg:'please your name :',
+            name:'',
+            user:[],
+        };
+    },
+    methods:{
+        doAction:function(){
+            this.msg = 'Hello, '+ this.name + '!!';
+        }
+    },
+    
+
+}
+</script>
+
+<style scoped>
+
+
+#profiel {
+  
+    width:420px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height:2000px;  
+    float: left;  
+  }
+  
+.profiel-line{
+padding-top:10px;
+margin-bottom: 10px;
+border : solid 1px #333 ;
+height:210px;
+}
+
+.profiel-head {
+margin-top:20px;
+text-align: center;
+background-color: #fff;
+width:330px;
+margin:0 auto;
+
+}
+
+.profiel-table{
+background-color: #fff;
+width:330px;
+margin:0 auto;
+}
+
+.my_photo{
+padding-left:10px;
+border-radius: 5px;
+margin: 15px 0px 10px 0px;
+float: left;
+}
+
+.my_photo img{
+margin-right:10px;
+}
+
+.my_photo p{
+margin-top:20px;
+
+}
+
+ul {
+list-style: none;
+}
+
+.my_info {
+float: left;
+}
+
+.my_photo img {
+float: left;
+border-radius: 100px;
+width:100px ;
+height:100px;
+}
+
+.my_photo p {
+float: right;
+
+}
+
+.my_photo a{
+background-color: #5dca88;
+color: white;
+padding:5px 5px;
+border-radius:5px;
+box-shadow: 0 4px #1a7940;
+}
+
+</style>
