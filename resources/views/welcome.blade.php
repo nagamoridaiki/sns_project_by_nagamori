@@ -75,6 +75,15 @@
                     メッセンジャーアプリ
                 </div>
             </div>
+            <div id="app">
+                <div id="nav">
+                    <router-link to="/">Home</router-link>
+                    <router-link to="/about">About</router-link>
+                    <router-link to="/user">ユーザ一覧</router-link>
+                </div>
+                <router-view></router-view>
+                </div>
+            </div>
         </div>
         @if (Route::has('login'))
             <div class="flex-center position-ref links ">
@@ -90,5 +99,6 @@
             </div>
         @endif
 
+    <script src="{{ mix('js/app.js') }}"></script> 
     </body>
 </html>
