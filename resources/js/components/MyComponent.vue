@@ -6,7 +6,7 @@
         <button v-on:click="doAction">click</button>
         <hr>
         <ul>
-            <li v-for="(person,key) in people">
+            <li v-for="(person,key) in people" v-bind:key="key.id">
                 {{person.id}}:{{person.name}}
                 [{{person.email}}]({{person.job}})
             </li>

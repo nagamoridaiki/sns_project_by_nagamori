@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <ul>
-                        <li v-for="user in users">{{ user.name }}</li>
+                        <li v-for="user in users" v-bind:key="user.id">{{ user.name }}</li>
                     </ul>
                 </div>
             </div>
