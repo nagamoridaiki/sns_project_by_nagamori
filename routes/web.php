@@ -15,6 +15,14 @@ Route::get('/vueuser', function () {
 Route::get('/hello/json', 'VuetestController@json');
 Route::get('/hello/json/{id}', 'VuetestController@json');
 
+//マイプロフィール用
+Route::get('/user', function () {
+    return Auth::user();
+});
+Route::get('/my_path', function () {
+    return Auth::user()->path;
+});
+
 
 //APIテスト用
 Route::get('/apitest','PostController@index');
