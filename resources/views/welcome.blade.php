@@ -88,7 +88,7 @@
         @if (Route::has('login'))
             <div class="flex-center position-ref links ">
                 @auth
-                    <a href="{{ url('/home') }}"><p>メインページ</p></a>
+                    <a href="{{ url('/users/index/'.Auth::id()) }}"><p>メインページ</p></a>
                 @else
                     <a href="{{ route('login') }}"><p>ログイン</p></a>
 

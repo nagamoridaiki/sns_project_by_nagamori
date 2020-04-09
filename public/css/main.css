@@ -13,7 +13,6 @@
   .profiel-line{
     padding-top:10px;
     margin-bottom: 10px;
-    border : solid 1px #333 ;
     height:210px;
   }
   
@@ -28,7 +27,7 @@
   
   .profiel-table{
     background-color: #fff;
-    width:330px;
+    width:390px;
     margin:0 auto;
   }
   
@@ -55,6 +54,10 @@
   
   .my_info {
     float: left;
+  }
+
+  .my_info img{
+    margin-right: 10px;
   }
   
   .my_photo img {

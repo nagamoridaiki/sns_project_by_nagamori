@@ -33,7 +33,7 @@ Route::post('/send', 'PostController@send');
 Route::get('/twitter', 'TwitterController@index');
 
 //HomeController@indexをスキップした
-Route::get('/home', 'UsersController@index');
+Route::get('/home', 'HomeController@index');
 
 Route::get('/users/index/{id}','UsersController@index');
 Route::post('/users/show/{id}','UsersController@show');
@@ -48,7 +48,7 @@ Route::get('/users/myprof/{id}','UsersController@myprof');
 Auth::routes();
 
 
-Route::get('/messages/index/{id}', 'MessagesController@index');
+Route::get('/messages/{id}', 'MessagesController@index');
 Route::post('/messages/send/{id}', 'MessagesController@send');
 Auth::routes();
 

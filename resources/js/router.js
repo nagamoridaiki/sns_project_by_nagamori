@@ -5,6 +5,9 @@ import User from './views/User.vue'
 import UserDetail from './views/UserDetail.vue'
 import UserEdit from './views/UserEdit.vue'
 import UserCreate from './views/UserCreate.vue'
+import Myprof from './views/Myprof.vue'
+import MyEdit from './views/Myedit.vue'
+import Message from './views/Message.vue'
 
 export default new Router({
     mode: 'history',
@@ -39,6 +42,22 @@ export default new Router({
         name: 'user_create',
         component: UserCreate
       },
+      {
+        path: '/users/index/:id/',
+        name: 'myprof',
+        component: Myprof
+      },
+      {
+        path: '/users/edit/:id',
+        name: 'myprof_edit',
+        component: MyEdit
+      },
+      {
+        path: '/messages/:id',
+        name: 'message',
+        component: Message
+      },
+      
 
     ]
   });

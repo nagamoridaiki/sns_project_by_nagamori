@@ -1,0 +1,95 @@
+<template>
+<div>
+	<form @submit.prevent="updateUser">
+        <router-link :to="`/users/index/${user.id}`">戻る</router-link>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td><input v-model="user.name"></td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <input v-model="user.email">
+            </tr>
+            <tr>
+                <th>Job:</th>
+                <input v-model="user.job">
+            </tr>
+            <tr>
+                <th>Skill:</th>
+                <input v-model="user.skill">
+            </tr>
+            <tr>
+                <th>Hobby:</th>
+                <input v-model="user.hobby">
+            </tr>
+            <button type="submit">Update</button>
+         </table>   
+	</form>	
+	
+</div>
+</template>
+
+<script>
+
+	export default {
+		data(){
+			return {
+				id: this.$route.params.id,
+				user:{
+					id:'',
+					name: '',
+                    email:'',
+
+                    job:'',
+                    skill:'',
+                    hobby:'',
+                },
+
+			}
+		},
+		methods:{
+			updateUser(){
+				axios.patch('/api/user/' + this.user.id,{
+					user: this.user
+				})
+				.then(response => {
+					this.user = response.data.user;
+					this.$router.push({ name: 'myprof' ,params :{ id: this.$route.params.id }})
+				})
+				.catch(error => console.log(error));
+            },
+            
+		},
+		created(){
+			axios.get('/api/user/' + this.id)
+			.then(response => this.user = response.data.user)
+			.catch(erorr => console.log(error));
+		}
+
+	}
+</script>
+
+<style scoped>
+img {
+  width:50%;
+  height:50%;  
+}
+
+label > input {
+  display: none;
+}
+
+label {
+  padding: 0 1rem;
+  border: solid 1px #888;
+} 
+
+label::after {
+  content: '+';
+  font-size: 1rem;
+  color: #888;
+  padding-left: 1rem;
+}
+
+</style>
