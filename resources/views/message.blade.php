@@ -5,6 +5,13 @@
 <div class="messages-top">
     <div class="friend-name">
         <h2>{{$friend->name}}</h2>
+        <div id="app">
+            <div id="nav">
+                <router-link to="{ path: '/messages/{{ $friend->id }}', params: { login_id:{{ $loginId }} } , props:true }"></router-link>
+            </div>
+            <router-view></router-view>
+            </div>
+        </div>
     </div>
     <div class="messages">
         {{--  チャットルーム  --}}
@@ -68,6 +75,9 @@
         <a href="{{ url('/users/index/'.Auth::id()) }}">プロフィール画面へ</a>
         <br>
     @endauth 
+
+<!-- Styles -->
+<link href="{{ asset('css/message.css') }}" rel="stylesheet">
 
 @endsection
 

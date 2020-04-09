@@ -28,6 +28,7 @@ class MessagesController extends Controller
             'friend' => $friend,
           ];
 
+        
           // 送信 / 受信のメッセージを取得する
         $query = Messages::where('send_user_id' , $loginId)->where('receive_user_id' , $id);;
         $query->orWhere(function($query) use($loginId , $id){
@@ -58,7 +59,7 @@ class MessagesController extends Controller
         unset($form['_token']);
         $message->fill($form)->save();
 
-        return redirect('/messages/index/'.$id);
+        return redirect('/messages/'.$id);
         
 
 

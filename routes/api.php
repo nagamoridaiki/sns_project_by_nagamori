@@ -47,3 +47,10 @@ Route::post('/user', function(Request $request){
 	$user = App\User::create($request->user);
 	return response()->json(['user' => $user]);
 });
+
+//全メッセージ取得API
+Route::get('/messages',function (Request $request) {
+	$messages = App\Messages::all();
+	return response()->json(['messages' => $messages]);
+});
+

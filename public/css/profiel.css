@@ -1,0 +1,73 @@
+
+#profiel {
+  
+    width:420px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height:2000px;  
+    float: left;  
+  }
+  
+.profiel-line{
+padding-top:10px;
+margin-bottom: 10px;
+border : solid 1px #333 ;
+height:210px;
+}
+
+.profiel-head {
+margin-top:20px;
+text-align: center;
+background-color: #fff;
+width:330px;
+margin:0 auto;
+
+}
+
+.profiel-table{
+    background-color: #fff;
+    width:330px;
+    margin:0 auto;
+  }
+  
+.my_photo{
+padding-left:10px;
+border-radius: 5px;
+margin: 15px 0px 10px 0px;
+float: left;
+}
+
+.my_photo img{
+    margin-right:10px;
+}
+  
+.my_photo p{
+margin-top:20px;
+
+}
+
+ul {
+list-style: none;
+}
+
+.my_info {
+float: left;
+}
+
+.my_photo img {
+float: left;
+border-radius: 100px;
+}
+
+.my_photo p {
+float: right;
+
+}
+
+.my_photo a{
+background-color: #5dca88;
+color: white;
+padding:5px 5px;
+border-radius:5px;
+box-shadow: 0 4px #1a7940;
+}

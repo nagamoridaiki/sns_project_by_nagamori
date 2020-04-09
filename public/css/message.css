@@ -1,0 +1,76 @@
+
+
+.messages-top{
+    width:900px;
+    margin-left: 150px;
+    text-align: center;
+  }
+  
+  .friend-name{
+    margin-bottom: 50px;
+  }
+  
+  .send{
+    margin-left: 600px;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .my_info{
+  }
+  
+  .my_info_name{
+    text-align: left;
+    width: 100px;
+    float: left;
+  }
+  
+  
+  .my_info_photo{
+    text-align: right;
+    width: 50px;
+    margin-left: 250px;
+    margin-bottom: 7px;
+  }
+  
+  .my_speek{
+    padding:15px 0px 0.1px 0px;
+    background-color: #38c172;
+    border-radius: 30px;
+  }
+  
+  .recieve{
+    margin-right: 750px;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .your_info{
+  
+  }
+  
+  .your_info_name{
+    text-align: left;
+    width: 100px;
+    float: left;
+  }
+  
+  .your_info_photo{
+    text-align: right;
+    width: 50px;
+    margin-left: 250px;
+    margin-bottom: 7px;
+  }
+  
+  .your_speek{
+    padding:15px 0px 0.1px 0px;
+    background-color: #3490dc;
+    border-radius: 30px;
+    text-align: center;
+  }
+  
+  
+
+  
