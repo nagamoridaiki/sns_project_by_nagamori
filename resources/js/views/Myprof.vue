@@ -1,13 +1,16 @@
 <template>
 <div>
 	<div>
-    <h3>{{ user.name }}</h3>
 	<ul>
-        <li><img v-bind:src="user.path" /></li>
-        <router-link :to="`/users/detail/${user.id}`">詳細</router-link>
+		<li>Id: {{ user.id }}</li>
+		<li>Name: {{ user.name }}</li>
+		<li>Email: {{ user.email }}</li>
+        <li>job: {{ user.job }}</li>
+        <li>skill: {{ user.skill }}</li>
+        <li>hobby: {{ user.hobby }}</li>
+		<router-link :to="`/users/edit/${user.id}`">編集</router-link>
 	</ul>
 	</div>
-	
 	
 </div>
 </template>
@@ -28,3 +31,16 @@
 
 	}
 </script>
+
+<style scoped>
+ul {
+  list-style: none;
+}
+
+img {
+  width:50%;
+  height:50%;  
+}
+
+
+</style>

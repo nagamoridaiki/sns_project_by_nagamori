@@ -9,6 +9,10 @@
             <h3 class="fas fa-address-book">プロフィール画面</h3>
         </div>
         <div class="profiel-table">
+        <h3>{{ $my->name }}</h3>
+        <li class="my_info" style="list-style:none">
+            <img src="{{ $my_path ?? '' }}"  width="100" height="100">
+        </li>
         <div id="app">
             <div id="nav">
                 <router-link to="/users/index/{{ $id }}"></router-link>
