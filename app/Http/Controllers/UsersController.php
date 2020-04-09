@@ -21,6 +21,7 @@ class UsersController extends Controller
     public function index(Request $request){
 
         $id = Auth::user()->id;
+        $my = Auth::user();
         $all_user = User::all();
         $user = User::find($id);
         $name = $user -> email;
@@ -38,7 +39,7 @@ class UsersController extends Controller
         }
         
 
-        return view('users/index', compact('all_user','article','others' ,'my_path','relationships','id','name','user','msg'));
+        return view('users/index', compact('my','all_user','article','others' ,'my_path','relationships','id','name','user','msg'));
     }
 
     public function show(Request $request, $id)
