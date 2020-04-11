@@ -2115,6 +2115,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2126,22 +2130,39 @@ __webpack_require__.r(__webpack_exports__);
         job: '',
         skill: '',
         hobby: ''
-      }
+      },
+      fileInfo: '',
+      user_image: '',
+      showUserImage: false
     };
   },
   methods: {
-    updateUser: function updateUser() {
+    fileSelected: function fileSelected(event) {
+      this.fileInfo = event.target.files[0];
+    },
+    fileUpload: function fileUpload() {
       var _this = this;
+
+      var formData = new FormData();
+      formData.append('file', this.fileInfo);
+      axios.post('/api/file_upload/' + this.user.id, formData).then(function (response) {
+        _this.user_image = response.data;
+        if (response.data.file_path) _this.showUserImage = true;
+        location.assign('/users/index/' + _this.user.id);
+      });
+    },
+    updateUser: function updateUser() {
+      var _this2 = this;
 
       axios.patch('/api/user/' + this.user.id, {
         user: this.user
       }).then(function (response) {
-        _this.user = response.data.user;
+        _this2.user = response.data.user;
 
-        _this.$router.push({
+        _this2.$router.push({
           name: 'myprof',
           params: {
-            id: _this.$route.params.id
+            id: _this2.$route.params.id
           }
         });
       })["catch"](function (error) {
@@ -2150,10 +2171,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios.get('/api/user/' + this.id).then(function (response) {
-      return _this2.user = response.data.user;
+      return _this3.user = response.data.user;
     })["catch"](function (erorr) {
       return console.log(error);
     });
@@ -38772,6 +38793,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("p", [
+      _c("input", { attrs: { type: "file" }, on: { change: _vm.fileSelected } })
+    ]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.fileUpload } }, [_vm._v("アップロード")]),
+    _vm._v(" "),
     _c(
       "form",
       {
