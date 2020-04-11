@@ -14,7 +14,7 @@ use Storage;
 class PhotosController extends Controller
 {
     public function create(){
-
+        
         return View('photos.create');
     }
 

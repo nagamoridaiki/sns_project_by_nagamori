@@ -1,5 +1,9 @@
 <template>
 <div>
+  <p><input type="file" v-on:change="fileSelected"></p>
+  <button v-on:click="fileUpload">アップロード</button>
+  <!--<img :src="`${user.path}`">-->
+  
 	<form @submit.prevent="updateUser">
         <router-link :to="`/users/index/${user.id}`">戻る</router-link>
         <table>
@@ -45,10 +49,28 @@
                     skill:'',
                     hobby:'',
                 },
-
+          fileInfo: '',
+          user_image: '',
+          showUserImage: false,
+          
 			}
 		},
 		methods:{
+      fileSelected(event){
+          this.fileInfo = event.target.files[0]
+      },
+      fileUpload(){
+          const formData = new FormData()
+          formData.append('file',this.fileInfo)
+
+          axios.post('/api/file_upload/' + this.user.id , formData)
+          .then(response =>{
+            this.user_image = response.data
+            if(response.data.file_path) this.showUserImage = true
+            location.assign('/users/index/'+ this.user.id);
+          });
+      },
+
 			updateUser(){
 				axios.patch('/api/user/' + this.user.id,{
 					user: this.user

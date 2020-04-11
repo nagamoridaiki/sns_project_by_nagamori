@@ -55,4 +55,11 @@ Route::get('/messages',function (Request $request) {
 });
 
 
-
+//画像アップロード
+Route::post('file_upload/{user}',function(App\User $user,Request $request){
+	$file_name = request()->file->getClientOriginalName();
+	request()->file->storeAs('image',$file_name , 'public_uploads');
+	$target = App\User::find($user->id);
+	$target->update(['path' => '/image/'.$file_name]);
+	return response()->json(['user' => $user]);
+});
