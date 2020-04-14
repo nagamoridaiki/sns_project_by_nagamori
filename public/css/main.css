@@ -6,27 +6,24 @@
     width:420px;
     margin-right: 10px;
     margin-left: 10px;
-    height:2000px;  
     float: left;  
   }
   
   .profiel-line{
     padding-top:10px;
     margin-bottom: 10px;
-    height:210px;
+    background-color: #fafdfb;
   }
   
   .profiel-head {
     margin-top:20px;
     text-align: center;
-    background-color: #fff;
     width:330px;
     margin:0 auto;
   
   }
   
   .profiel-table{
-    background-color: #fff;
     width:390px;
     margin:0 auto;
   }
@@ -71,11 +68,9 @@
   }
   
   .my_photo a{
-    background-color: #5dca88;
-  color: white;
+
   padding:5px 5px;
   border-radius:5px;
-  box-shadow: 0 4px #1a7940;
   }
   
   
@@ -88,16 +83,11 @@
   }
   
   .profiel-edit a{
-    background-color: #5dca88;
-    color: white;
     padding:10px 10px;
     border-radius: 5px;
-    box-shadow: 0 4px #1a7940;
   }
   
   .profiel-edit a:hover{
-    background-color: #5dca88;
-    color: white;
     box-shadow: none;
     padding:10px 10px;
     border-radius: 5px;
@@ -112,7 +102,6 @@
     margin-right: 10px;
     margin-bottom: 10px;
     border : solid 1px #333 ;
-    background-color: aquamarine;
   }
   
   .post-top{
@@ -160,7 +149,6 @@
     height:90px;
     border : solid 1px #333 ;
     padding:8px 8px 0px 8px ;
-    background-color: #5dca88;
     margin:0px 7px 0px 7px;
   
   }
@@ -172,11 +160,9 @@
   
   
   .friend_top{
-    width:400px;
+    width:380px;
     height:510px;
     float: left;
-    border : solid 1px #333 ;
-    background-color: aquamarine;
   }
   
   
@@ -202,18 +188,10 @@
   }
   
   .serch-submit input{
-    background-color: #1a7940;
-    color: white;
-    box-shadow: 4px 4px #123c24;
   
   }
   
   .serch-submit input:hover{
-    background-color: #1a7940;
-    color: white;
-    top: 4px;
-    position: relative;
-    box-shadow: none;
   }
   
   .friend-table{

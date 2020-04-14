@@ -7049,7 +7049,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nul[data-v-db58ab38] {\n  list-style: none;\n}\nimg[data-v-db58ab38] {\n  width:50%;\n  height:50%;\n}\n\n\n", ""]);
+exports.push([module.i, "\nul[data-v-db58ab38] {\n  list-style: none;\n}\nimg[data-v-db58ab38] {\n  width:50%;\n  height:50%;\n}\n.prof-font[data-v-db58ab38] {\n\tfont-size: 16px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -38967,7 +38967,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
+    _c("div", { staticClass: "prof-font" }, [
       _c(
         "ul",
         [
