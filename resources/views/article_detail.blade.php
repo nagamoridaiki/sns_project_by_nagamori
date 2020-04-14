@@ -9,7 +9,7 @@
             <h2 class="card-text">
                 {!! nl2br(e($article->message_text, 200)) !!}
             </h2>
-<!--　自分の投稿だけ削除できるif判定　-->
+            <!--　自分の投稿だけ削除できるif判定　-->
             @if($login_user_id == $article->user_id)
             <form　method="POST" action="/article/destroy/{{$article->id}}">
                 @csrf

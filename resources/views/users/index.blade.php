@@ -6,20 +6,16 @@
 <div id="profiel">
     <div class="profiel-line">
         <div class="profiel-head">
-            <h3 class="fas fa-address-book">プロフィール画面</h3>
+            <h3 class="fas fa-address-book">プロフィール</h3>
         </div>
         <div class="profiel-table">
         <h3>{{ $my->name }}</h3>
-        <li class="my_info" style="list-style:none">
             <img src="{{ $my_path ?? '' }}"  width="100" height="100">
-        </li>
         <div id="app">
-            <div id="nav">
-                <router-link to="/users/index/{{ $id }}"></router-link>
-            </div>
+            <router-link to="/users/index/{{ $id }}"></router-link>
             <router-view></router-view>
-            </div>
-        </div>       
+        </div>
+         
         </div>
     </div>
 </div>
@@ -29,7 +25,7 @@
 <!--投稿一覧画面-->
 <div class="article-top">
     <div class="article-thema">
-        <h3 class="fas fa-chalkboard-teacher"> 投稿一覧画面</h3>
+        <h3 class="fas fa-chalkboard-teacher"> タイムライン</h3>
     </div>
     <div class="article-list">
         @foreach($article as $index => $one_article)
@@ -56,18 +52,11 @@
     <div class="paginate">
         {{ $article->links() }}
     </div>
-    <!--書き込みフォーム-->
-    <div class="post-top">
-        <form method="post" action="/article/create/{{Auth::id()}}">
-            <table>
-            {{ csrf_field() }}
-                <input type="hidden" name="id" value="{{Auth::id()}}">
-                <tr><th>投稿する　</th>
-                <td><input class="input_text" type="text" name="message_text" value=""></td>
-                <td><input class="post-submit" type="submit" value="送信"></td>
-            </table>
-        </form>
-    </div>
+    <button type="button" >
+        <a href="{{ url('article/index/'.$id) }}">
+            <h3 class="fas fa-user-edit"></h3>
+        </a>
+    </button>
     <p class="error_msg">{{$msg ?? '' }}</p>
 </div>
 
@@ -77,7 +66,7 @@
 <div class="friend_top">
     <div class="friend-main">
         <div class="friend-theme">
-            <h3 class="fas fa-child">友達</h3>
+            <h3 class="fas fa-child">ユーザー</h3>
         </div>
         <div class="friend-serch">
             <form class="form" method="post" action="/users/show/{{Auth::id()}}">
@@ -114,7 +103,6 @@
                                     <button type="button" class="btn btn-primary">chat</button>
                                 </a>
                             </td>
-
                             @php
                                 $flag = 0;
                                 foreach($relationships as $index => $value){
@@ -124,12 +112,11 @@
                                     }
                                 }
                             @endphp
-
-                            @if($flag == 0)
+                            <!--@if($flag == 0)
                                 <td><a href="{{ url('/users/create/'.$user->id) }}"><button type="button" class="btn btn-primary">フォロー</button></a></td>
                             @else
                                 <td><a href="{{ url('/users/destroy/'.$user->id) }}"><button type="button" class="btn btn-primary-followon" >フォロー中</button></a></td>
-                            @endif
+                            @endif-->
                         </tr>
                     @endforeach
                     </tbody>

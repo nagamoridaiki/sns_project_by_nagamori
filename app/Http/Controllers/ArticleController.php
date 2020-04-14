@@ -10,13 +10,14 @@ use App\Messages;
 use App\Article;
 use Illuminate\Support\Facades\Auth;
 
+
 class ArticleController extends Controller
 {
 
     public function index(Request $request){
 
         $user = Auth::user();
-        return view('article', compact('user'));
+        return view('article_post', compact('user'));
     }
 
     public function show(Request $request, $id)
@@ -49,6 +50,7 @@ class ArticleController extends Controller
 
         $text = $request->message_text;
 
+        /*
         if(strlen($text)>60){
             $msg = "投稿が長すぎます";
             $request->session()->put('msg', $msg);
@@ -57,9 +59,11 @@ class ArticleController extends Controller
             $msg = "投稿しました";
             $request->session()->put('msg', $msg);
         }
+        */
 
         $article = new Article;
         $message_text = $request->message_text;
+        $request->session()->put('msg', "投稿しました");
         $path = "ここにはパスが入る予定";
         $article->fill(['user_id'=>$my->id , 'message_text'=>$message_text , 'path'=>$path ]);
         $article->save();

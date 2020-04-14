@@ -10,6 +10,7 @@ use App\Messages;
 use App\Article;
 use Illuminate\Support\Facades\Auth;
 
+
 class UsersController extends Controller
 { 
 
