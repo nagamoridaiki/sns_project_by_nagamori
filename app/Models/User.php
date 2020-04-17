@@ -39,22 +39,22 @@ class User extends Authenticatable
 
 
     public function send_messages(){
-        return $this->hasMany('App\Message' , 'send_user_id' , 'id');
+        return $this->hasMany('App\Models\Message::class' , 'send_user_id' , 'id');
     }
 
     public function receive_messages(){
-        return $this->hasMany('App\Message' , 'receive_user_id' , 'id');
+        return $this->hasMany('App\Models\Message::class' , 'receive_user_id' , 'id');
     }
 
     public function user_relationships(){
-        return $this->hasMany('App\Relationship' , 'user_id' , 'id');
+        return $this->hasMany('App\Models\Relationship::class' , 'user_id' , 'id');
     }
 
     public function friend_relationships(){
-        return $this->hasMany('App\Relationship' , 'friend_id' , 'id');
+        return $this->hasMany('App\Models\Relationship::class' , 'friend_id' , 'id');
     }
 
     public function write_article(){
-        return $this->hasMany('App\Article');
+        return $this->hasMany('App\Models\Article::class');
     }
 }
