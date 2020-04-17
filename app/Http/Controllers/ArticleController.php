@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
+    private $article;
+
+    public function __construct(Article $article)
+    {
+        $this->article = $article;
+    }
 
     public function index(Request $request){
-
         $user = Auth::user();
         return view('article_post', compact('user'));
     }
@@ -48,26 +53,15 @@ class ArticleController extends Controller
             'message_text' => 'max:20',
         ];
 
-        $text = $request->message_text;
-
-        /*
-        if(strlen($text)>60){
-            $msg = "投稿が長すぎます";
-            $request->session()->put('msg', $msg);
-            return redirect( 'users/index/'.Auth::id() );
-        }else{
-            $msg = "投稿しました";
-            $request->session()->put('msg', $msg);
-        }
-        */
-
-        $article = new Article;
+        $this->article->create($request->validated());
+        $request->session()->put('msg', "投稿しました");
+        /*または
         $message_text = $request->message_text;
         $request->session()->put('msg', "投稿しました");
         $path = "ここにはパスが入る予定";
         $article->fill(['user_id'=>$my->id , 'message_text'=>$message_text , 'path'=>$path ]);
         $article->save();
-        
+        */
         return redirect('users/index/'.Auth::id());
 
     }
