@@ -22,7 +22,7 @@ Route::apiResource('posts', 'PostController');
 
 //全ユーザー取得API
 Route::get('/user',function (Request $request) {
-	$users = App\User::all();
+	$users = App\Models\User::all();
 	return response()->json(['users' => $users]);
 });
 //ユーザー詳細取得API
@@ -44,13 +44,13 @@ Route::delete('/user/{user}', function(App\User $user){
 
 //ユーザデータの作成API
 Route::post('/user', function(Request $request){
-	$user = App\User::create($request->user);
+	$user = App\Models\User::create($request->user);
 	return response()->json(['user' => $user]);
 });
 
 //全メッセージ取得API
 Route::get('/messages',function (Request $request) {
-	$messages = App\Messages::all();
+	$messages = App\Models\Messages::all();
 	return response()->json(['messages' => $messages]);
 });
 
@@ -59,7 +59,7 @@ Route::get('/messages',function (Request $request) {
 Route::post('file_upload/{user}',function(App\User $user,Request $request){
 	$file_name = request()->file->getClientOriginalName();
 	request()->file->storeAs('image',$file_name , 'public_uploads');
-	$target = App\User::find($user->id);
+	$target = App\Models\User::find($user->id);
 	$target->update(['path' => '/image/'.$file_name]);
 	return response()->json(['user' => $user]);
 });

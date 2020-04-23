@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\User;
-use App\Relationships;
-use App\Messages;
-use App\Article;
+use App\Models\User;
+use App\Models\Relationships;
+use App\Models\Messages;
+use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 
 

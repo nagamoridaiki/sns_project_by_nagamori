@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\User;
-use App\Messages;
-use App\Relationships;
+use App\Models\User;
+use App\Models\Messages;
+use App\Models\Relationships;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use Storage;
